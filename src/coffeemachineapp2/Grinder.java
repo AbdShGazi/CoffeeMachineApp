@@ -15,7 +15,7 @@ public class Grinder {
     private int beansNedded;
 
     public Grinder() {
-        this.grindLevel = 0;
+        this.grindLevel = 1;
     }
 
     public int getBeansNedded() {

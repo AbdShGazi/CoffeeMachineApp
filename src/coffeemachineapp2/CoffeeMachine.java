@@ -5,6 +5,7 @@
 package coffeemachineapp2;
 
 import coffeemachineapp2.Exceptions.GrinderLevelException;
+import coffeemachineapp2.Exceptions.TrayFullException;
 
 /**
  *
@@ -15,24 +16,26 @@ public class CoffeeMachine {
     private WaterContainer waterContainer=new WaterContainer();
     private Grinder grinder= new Grinder();
     private Tray wasteTray= new Tray();
-    private int cupsServed;
-    private static final int MAX_CUPS_BEFORE_CLEAN = 10;
+    private int cupsDone;
+    private static final int MaximumCups = 10;
 
     public CoffeeMachine(){
-        cupsServed = 0;
+        cupsDone = 0;
     }
 
-    
-    public String Start(){
-        return "Coffee Machine Status: "+"Water Amount: "+waterContainer.getWater()+"\nBeans Amount: "+beansContainer.getBeans()+"\nGrinder Level:"+grinder.getGrindSize()+"\nTray Status:"+wasteTray.cheack();
-    }
+    public void start(){}
+  
 
 public void selectGrindLevel(int level) {
     if (level < 1 || level > 5) {
        throw new GrinderLevelException();
-    } else {
+    }
+    else
+    {
+        
         grinder.setGrindSize(level);
-        System.out.println("Grind level set to");
+        
+        System.out.println("Grind level is :");
     }
 }
 
@@ -40,6 +43,25 @@ public void selectGrindLevel(int level) {
         return waterContainer.getWater();
     }
 
+    public int getWaterLevel(){
+        return waterContainer.getWaterAmount();
+    }
+    public int getBeansLevel(){
+        return beansContainer.getBeans();
+    }
+    public int getGrindLevel(){
+        return grinder.getGrindSize();
+    }
+    public String getCoffeeName(){
+        return Drink.getName();
+    }
+    public boolean isClean(){
+        if (cupsDone ==10) {
+          return false;
+        }
+        else
+            return true;
+    }
     public void addBeans(int amount)  {
         beansContainer.addBeans(amount);
     }
@@ -57,10 +79,11 @@ public void selectGrindLevel(int level) {
       
         grinder.setGrindSize(coffeeType.getGrindsize());
         
-        cupsServed++;
-
-        int remainingBeans = beansContainer.useBeans(requiredBeans);
-        int remainingWater = waterContainer.useWater(requiredWater);
+        cupsDone++;
+if(cupsDone>=10)
+    throw new TrayFullException();
+        int remainbeans = beansContainer.useBeans(requiredBeans);
+        int remainwater = waterContainer.useWater(requiredWater);
 
        
 
@@ -71,12 +94,10 @@ public void selectGrindLevel(int level) {
         System.out.println("Caffeine: " + caffeine + " mg");
        
 
-        if (cupsServed % MAX_CUPS_BEFORE_CLEAN == 0) {
-            wasteTray.clean();
-        }
+        
 
-        System.out.println("Remaining beans: " + remainingBeans);
-        System.out.println("Remaining water: " + remainingWater);
+        System.out.println("Remaining beans: " + remainbeans);
+        System.out.println("Remaining water: " + remainwater);
     }
     
 }

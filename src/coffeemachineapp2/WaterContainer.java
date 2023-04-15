@@ -20,6 +20,10 @@ public class WaterContainer {
         waterAmount = 0;
     }
 
+    public int getWaterAmount() {
+        return waterAmount;
+    }
+
 
 
     public void addWater(int amount)  {

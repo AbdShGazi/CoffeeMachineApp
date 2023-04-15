@@ -18,6 +18,7 @@ public class BeansContainer {
     public BeansContainer() {
         beansAmount = 0;
     }
+    
 
     public void addBeans(int amount)  {
         if (beansAmount + amount > beansCapacity) {

@@ -9,28 +9,40 @@ package coffeemachineapp2;
  * @author abdsh
  */
 public class Americano extends Drink {
-    private static final String NAME = "Americano";
-    private static final int SINGLE_SHOT_GROUND_COFFEE = 7;
-    private static final int SINGLE_SHOT_WATER = 170;
-    private static final int DOUBLE_SHOT_GROUND_COFFEE = 14;
-    private static final int DOUBLE_SHOT_WATER = 220;
+    private static final String name = "Americano";
+    private static final int singleShotBensAmount = 7;
+   private static final int singleShotCaffineAmount=60;
+    private static final int singleShotWaterAmount = 170;
+    private static final int doubleShowBeansAmount = 14;
+    private static final int doubleShotWaterAmount = 220;
+       private static final int doubleShotCaffineAmount=90;
 
     public Americano(int shots) {
-        super(NAME, shots);
-    }
-
-    
-
-    
-    public int getRequiredBeans() {
         
-        return getShots() == 1 ? SINGLE_SHOT_GROUND_COFFEE : DOUBLE_SHOT_GROUND_COFFEE;
+        super(name, shots);
+        
     }
 
-    
+   public int getCaffine() {
+         if(getShots()==1)
+             return singleShotCaffineAmount;
+         else
+             return doubleShotCaffineAmount;
+    }
+    @Override
+    public int getRequiredBeans(int x) {
+        if(getShots()==1)
+          return  singleShotBensAmount;
+                    else
+           return doubleShowBeansAmount;
+      
+    }
 
-    
-    public int getRequiredWater() {
-        return getShots() == 1 ? SINGLE_SHOT_WATER : DOUBLE_SHOT_WATER;
+    @Override
+    public int getRequiredWater(int x) {
+        if (getShots()==1)
+        return  singleShotWaterAmount ;else
+            return doubleShotWaterAmount;
+        
     }
 }
