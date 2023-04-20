@@ -78,7 +78,7 @@ public void selectGrindLevel(int level) {
 
       
         grinder.setGrindSize(coffeeType.getGrindsize());
-        
+        grinder.grind();
         cupsDone++;
 if(cupsDone>=10)
     throw new TrayFullException();

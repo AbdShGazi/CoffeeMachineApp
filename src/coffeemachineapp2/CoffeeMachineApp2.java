@@ -33,12 +33,12 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
             System.out.println("\nPlease select an option:");
             
             System.out.println("1. Start");
-            System.out.println("2. Select Grind Level");
-            System.out.println("3. Add Beans");
-            System.out.println("4. Add Water");
-            System.out.println("5. Select Coffee");
-            System.out.println("6. Clean Machine");
-            System.out.println("7. Exit");
+
+            System.out.println("2. Add Beans");
+            System.out.println("3. Add Water");
+            System.out.println("4. Select Coffee");
+            System.out.println("5. Clean Machine");
+            System.out.println("6. Exit");
             
             System.out.print("\nYour choice: ");
             
@@ -48,22 +48,20 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
                 case 1:
                     start();
                     break;
+                
                 case 2:
-                    selectGrindLevel();
-                    break;
-                case 3:
                     addBeans();
                     break;
-                case 4:
+                case 3:
                     addWater();
                     break;
-                case 5:
+                case 4:
                     selectCoffee();
                     break;
-                case 6:
+                case 5:
                     clean();
                     break;
-                case 7:
+                case 6:
                     System.out.println("Machine off!" + "\n goodBye ❤️");
                     scanner.close();
                     System.exit(0);
@@ -147,6 +145,7 @@ try {
     switch (choice) {
         case 1:
              Espresso s1 = new Espresso(1);
+             selectGrindLevel();
               coffeemahine.selectCoffee(s1, 1);
          
             System.out.println("Espresso (Single Shot) selected.");
@@ -155,7 +154,7 @@ try {
         case 2: 
             
             Espresso s2 = new Espresso(2);
-            
+            selectGrindLevel();
                  coffeemahine.selectCoffee(s2, 2);
            
             System.out.println("Espresso (Double Shot) selected.");
@@ -163,12 +162,13 @@ try {
         case 3: 
             
             Americano  c2=new Americano(1);   
-            
+            selectGrindLevel();
             coffeemahine.selectCoffee(c2, 1);
                  System.out.println("Americano (Single Shot) selected.");
             break;
         case 4:
                Americano c1=new Americano(2);
+               selectGrindLevel();
             coffeemahine.selectCoffee(c1,2);
             System.out.println("Americano (Double Shot) selected.");
                break;
@@ -180,6 +180,7 @@ try {
 catch (WaterNotEnoughException   | BeansNotEnoughException | GrinderLevelException|TrayFullException e) {
           System.out.println("Error Message ❗ : " + e.getMessage());
 }
+
 }
 public static void clean(){
     coffeemahine.clean();
