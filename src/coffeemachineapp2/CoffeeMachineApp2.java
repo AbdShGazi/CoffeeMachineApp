@@ -25,13 +25,13 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
      * 
      */
     public static void main(String[] args) {
-   
+
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Welcome to the Coffee Machine Simulation! 😁 ");
-    
+    System.out.println("Welcome to the Coffee Machine Simulation!  ");
+
     while(true) {
             System.out.println("\nPlease select an option:");
-            
+
             System.out.println("1. Start");
 
             System.out.println("2. Add Beans");
@@ -39,16 +39,16 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
             System.out.println("4. Select Coffee");
             System.out.println("5. Clean Machine");
             System.out.println("6. Exit");
-            
+
             System.out.print("\nYour choice: ");
-            
+
             int choice = scanner.nextInt();
-            
+
             switch(choice) {
                 case 1:
                     start();
                     break;
-                
+
                 case 2:
                     addBeans();
                     break;
@@ -62,15 +62,14 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
                     clean();
                     break;
                 case 6:
-                    System.out.println("Machine off!" + "\n goodBye ❤️");
+                    System.out.println("Machine off!" + "\n goodBye ");
                     scanner.close();
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice, please select again 😟");
+                    System.out.println("Invalid choice, please select again ");
             }
         }
-    }
-    
+    }  
     public static void selectGrindLevel() {
         System.out.println("\nPlease select a grind level:");
         System.out.println("1. Coarse");
@@ -105,14 +104,44 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
                 System.out.println("Invalid choice, please select again ⁉️");
         }
     }
+public static void  addBeans(){
+            System.out.println("\nPlease select a choice :");
+               System.out.println("1. Arabica Beans");
+               System.out.println("2. Robusta Beans");
+         Scanner scanner = new Scanner(System.in);
+         
+        int choice = scanner.nextInt();
+        switch(choice) {
+            case 1:
+                addArabicaBeans();
+                break;
+            case 2: 
+                addRobustaBeans();
+                break;
+                default:
+                System.out.println("Invalid choice, please select again ⁉️");
+        }
+
+}
     
-   public static void addBeans() {
-    System.out.print("Please enter the amount of beans to add (in grams): ");
+   public static void addArabicaBeans() {
+    System.out.print("Please enter the amount of Arabica beans to add (in grams): ");
     Scanner scanner = new Scanner(System.in);
     int beansToAdd = scanner.nextInt();
     try {
-        coffeemahine.addBeans(beansToAdd);
-        System.out.println(beansToAdd + " grams of beans added.");
+        coffeemahine.getBeansContainer().addArabicaBeans(beansToAdd);
+        System.out.println(beansToAdd + " grams of Arabica beans added.");
+    } catch (BeansOverCapacityException e) {
+        System.out.println("Error Message ❗ : " + e.getMessage());
+    }
+}
+    public static void addRobustaBeans() {
+    System.out.print("Please enter the amount of Robusta beans to add (in grams): ");
+    Scanner scanner = new Scanner(System.in);
+    int beansToAdd = scanner.nextInt();
+    try {
+        coffeemahine.getBeansContainer().addRobustaBeanS(beansToAdd);
+        System.out.println(beansToAdd + " grams of Robusta beans added.");
     } catch (BeansOverCapacityException e) {
         System.out.println("Error Message ❗ : " + e.getMessage());
     }
@@ -132,6 +161,53 @@ static CoffeeMachine  coffeemahine=new CoffeeMachine();
     }
 }
     
+//    public static void selectCoffee() {
+//    System.out.println("\nPlease select a coffee type:");
+//    System.out.println("1. Espresso (Single Shot)");
+//    System.out.println("2. Espresso (Double Shot)");
+//    System.out.println("3. Americano (Single Shot)");
+//    System.out.println("4. Americano (Double Shot)");
+//    System.out.print("\nYour choice: ");
+//Scanner scanner = new Scanner(System.in);
+//    int choice = scanner.nextInt();
+//try {
+//    switch (choice) {
+//        case 1:
+//             Espresso s1 = new Espresso(1);
+//              coffeemahine.selectCoffee(s1, 1);
+//         
+//            System.out.println("Espresso (Single Shot) selected.");
+//            
+//            break;
+//        case 2: 
+//            
+//            Espresso s2 = new Espresso(2);
+//            
+//                 coffeemahine.selectCoffee(s2, 2);
+//           
+//            System.out.println("Espresso (Double Shot) selected.");
+//            break;
+//        case 3: 
+//            
+//            Americano  c2=new Americano(1);   
+//            
+//            coffeemahine.selectCoffee(c2, 1);
+//                 System.out.println("Americano (Single Shot) selected.");
+//            break;
+//        case 4:
+//               Americano c1=new Americano(2);
+//            coffeemahine.selectCoffee(c1,2);
+//            System.out.println("Americano (Double Shot) selected.");
+//               break;
+//        default:
+//            System.out.println("Invalid choice, please select again ⁉️");
+//    }
+//    
+//    }
+//catch (WaterNotEnoughException   | BeansNotEnoughException | GrinderLevelException|TrayFullException e) {
+//          System.out.println("Error Message ❗ : " + e.getMessage());
+//}
+//}
     public static void selectCoffee() {
     System.out.println("\nPlease select a coffee type:");
     System.out.println("1. Espresso (Single Shot)");
@@ -147,21 +223,21 @@ try {
              Espresso s1 = new Espresso(1);
              selectGrindLevel();
               coffeemahine.selectCoffee(s1, 1);
-         
+
             System.out.println("Espresso (Single Shot) selected.");
-            
+
             break;
         case 2: 
-            
+
             Espresso s2 = new Espresso(2);
             selectGrindLevel();
                  coffeemahine.selectCoffee(s2, 2);
-           
+
             System.out.println("Espresso (Double Shot) selected.");
             break;
         case 3: 
-            
-            Americano  c2=new Americano(1);   
+
+            Americano  c2=new Americano(1);
             selectGrindLevel();
             coffeemahine.selectCoffee(c2, 1);
                  System.out.println("Americano (Single Shot) selected.");
@@ -173,12 +249,12 @@ try {
             System.out.println("Americano (Double Shot) selected.");
                break;
         default:
-            System.out.println("Invalid choice, please select again ⁉️");
+            System.out.println("Invalid choice, please select again ");
     }
-    
+
     }
 catch (WaterNotEnoughException   | BeansNotEnoughException | GrinderLevelException|TrayFullException e) {
-          System.out.println("Error Message ❗ : " + e.getMessage());
+          System.out.println("Error Message  : " + e.getMessage());
 }
 
 }

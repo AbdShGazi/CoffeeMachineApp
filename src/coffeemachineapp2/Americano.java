@@ -10,10 +10,12 @@ package coffeemachineapp2;
  */
 public class Americano extends Drink {
     private static final String name = "Americano";
-    private static final int singleShotBensAmount = 7;
+    private static final int singleShotArabicaBensAmount = 4;
+    private static final int singleShotRobustaBensAmount =3;
    private static final int singleShotCaffineAmount=60;
     private static final int singleShotWaterAmount = 170;
-    private static final int doubleShowBeansAmount = 14;
+    private static final int doubleShotArabicaBeansAmount = 7;
+       private static final int doubleShotRobustaBeansAmount = 7;
     private static final int doubleShotWaterAmount = 220;
        private static final int doubleShotCaffineAmount=90;
 
@@ -21,7 +23,7 @@ public class Americano extends Drink {
         
         super(name, shots);
         
-    }
+    }  
 
    public int getCaffine() {
          if(getShots()==1)
@@ -29,14 +31,33 @@ public class Americano extends Drink {
          else
              return doubleShotCaffineAmount;
     }
+//    @Override
+//    public int getRequiredArabicaBeans(int x) {
+//        if(getShots()==1)
+//          return  singleShotArabicaBensAmount;
+//                    else
+//           return doubleShotArabicaBeansAmount;
+//      
+//    }
+
     @Override
-    public int getRequiredBeans(int x) {
-        if(getShots()==1)
-          return  singleShotBensAmount;
+    public int getArabicaRequiredBeans(int shots) {
+       if(getShots()==1)
+         return  singleShotArabicaBensAmount;
                     else
-           return doubleShowBeansAmount;
-      
+          return doubleShotArabicaBeansAmount;
+    
     }
+
+    @Override
+    public int getRobustarequiredBeans(int shots) {
+        
+        if(getShots()==1)
+         return  singleShotRobustaBensAmount;
+                    else
+          return doubleShotRobustaBeansAmount;
+    }
+
 
     @Override
     public int getRequiredWater(int x) {

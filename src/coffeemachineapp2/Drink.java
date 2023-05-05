@@ -13,8 +13,11 @@ public class Drink {
     private final int shots;
     private  int Caffine;
     private  int grindsize;
-    private  int requiredBeans;
+    private  int RobustarequiredBeans;
 private  int requiredWater;
+private int ArabicaRequiredBeans;
+
+
     public  int getGrindsize() {
         return grindsize;
     }
@@ -36,9 +39,15 @@ private  int requiredWater;
         return shots;
     }
 
-    public  int getRequiredBeans(int shot) {
-      return 0;
+    public int getRobustarequiredBeans(int shots) {
+        return RobustarequiredBeans;
     }
+
+    public int getArabicaRequiredBeans(int shots) {
+        return ArabicaRequiredBeans;
+    }
+
+  
 
     public int getRequiredWater(int x) {
       return 0;

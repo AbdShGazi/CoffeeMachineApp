@@ -12,7 +12,7 @@ import coffeemachineapp2.Exceptions.WaterOverflowException;
  * @author abdsh
  */
 public class WaterContainer {
-    private final int waterCapacity=1000;
+    private final int waterCapacity=1500;
     private int waterAmount;
 
     public WaterContainer() {

@@ -47,7 +47,7 @@ public void selectGrindLevel(int level) {
         return waterContainer.getWaterAmount();
     }
     public int getBeansLevel(){
-        return beansContainer.getBeans();
+        return beansContainer.getArabicaBeansAmount() + beansContainer.getRobustaBeansAmount();
     }
     public int getGrindLevel(){
         return grinder.getGrindSize();
@@ -62,9 +62,9 @@ public void selectGrindLevel(int level) {
         else
             return true;
     }
-    public void addBeans(int amount)  {
-        beansContainer.addBeans(amount);
-    }
+//    public void addBeans(int amount)  {
+//        beansContainer.addBeans(amount);
+//    }
 
     public void addWater(int amount)  {
         waterContainer.addWater(amount);
@@ -72,17 +72,20 @@ public void selectGrindLevel(int level) {
    public void clean(){
  wasteTray.clean();
    }
+   // 
     public void selectCoffee(Drink coffeeType, int shots)  {
-        int requiredBeans = coffeeType.getRequiredBeans(shots);
+        int robustaBeans = coffeeType.getRobustarequiredBeans(shots);
+          int arabicaBeans = coffeeType.getArabicaRequiredBeans(shots);
         int requiredWater = coffeeType.getRequiredWater(shots);
 
       
         grinder.setGrindSize(coffeeType.getGrindsize());
-        grinder.grind();
+        
         cupsDone++;
 if(cupsDone>=10)
     throw new TrayFullException();
-        int remainbeans = beansContainer.useBeans(requiredBeans);
+        int remainArabicabeans = beansContainer.useArabicaBeans(arabicaBeans);
+        int remainRobustabeans = beansContainer.useRobustaBeans(robustaBeans);
         int remainwater = waterContainer.useWater(requiredWater);
 
        
@@ -96,9 +99,16 @@ if(cupsDone>=10)
 
         
 
-        System.out.println("Remaining beans: " + remainbeans);
+        System.out.println("Remaining Arabica beans: " + remainArabicabeans);
+        System.out.println("Remaining Robusta beans: " + remainRobustabeans);
+
         System.out.println("Remaining water: " + remainwater);
     }
+
+    public BeansContainer getBeansContainer() {
+        return beansContainer;
+    }
+    
     
 }
 

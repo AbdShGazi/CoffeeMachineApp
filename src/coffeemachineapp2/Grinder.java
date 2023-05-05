@@ -21,7 +21,7 @@ public class Grinder {
     public int getBeansNedded() {
         return beansNedded;
     }
-public void grind(){}
+
     public void setBeansNedded(int beansNedded) {
         this.beansNedded = beansNedded;
     }

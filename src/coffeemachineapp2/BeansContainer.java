@@ -12,36 +12,72 @@ import coffeemachineapp2.Exceptions.BeansNotEnoughException;
  * @author abdsh
  */
 public class BeansContainer {
-    private final  int beansCapacity=300;
-    private int beansAmount;
+//    private final  int beansCapacity=300;
+//    private int beansAmount;
+    private int ArabicaBeansAmount;
+    private int RobustaBeansAmount;
+    int arabicaBeansCapacity = 400;
+    int robustaBeansCapacity = 400;
 
     public BeansContainer() {
-        beansAmount = 0;
+        this.ArabicaBeansAmount =0;
+        this.RobustaBeansAmount =0;
     }
-    
+   
 
-    public void addBeans(int amount)  {
-        if (beansAmount + amount > beansCapacity) {
+    public void addArabicaBeans(int amount)  {
+        if (ArabicaBeansAmount + amount > arabicaBeansCapacity ) {
             throw new BeansOverCapacityException();
         }
 
-        beansAmount += amount;
+        ArabicaBeansAmount += amount;
     }
+    public void addRobustaBeanS(int amount)  {
+        if (RobustaBeansAmount + amount > robustaBeansCapacity ) {
+            throw new BeansOverCapacityException();
+        }
 
-    public int useBeans(int amount) {
-        int remainingBeans = beansAmount - amount;
+       RobustaBeansAmount += amount;
+    }
+    public int useRobustaBeans(int amount) {
+        int remainingBeans = RobustaBeansAmount  - amount;
 
         if (remainingBeans < 0) {
            throw new BeansNotEnoughException();
         }
 
-        beansAmount = remainingBeans;
+        RobustaBeansAmount = remainingBeans;
+return remainingBeans;
+       
+    }
+    public int useArabicaBeans(int amount) {
+        int remainingBeans = ArabicaBeansAmount  - amount;
+
+        if (remainingBeans < 0) {
+           throw new BeansNotEnoughException();
+        }
+
+       ArabicaBeansAmount = remainingBeans;
 return remainingBeans;
        
     }
 
-    public int getBeans() {
-        return beansAmount;
+    public int getArabicaBeansAmount() {
+        return ArabicaBeansAmount;
     }
+
+    public int getRobustaBeansAmount() {
+        return RobustaBeansAmount;
+    }
+
+    public int getArabicaBeansCapacity() {
+        return arabicaBeansCapacity;
+    }
+
+    public int getRobustaBeansCapacity() {
+        return robustaBeansCapacity;
+    }
+
+    
 }
 
