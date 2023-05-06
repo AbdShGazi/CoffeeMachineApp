@@ -50,6 +50,15 @@ public class BeansContainer {
 
        
     }
+
+    public void setArabicaBeansAmount(int ArabicaBeansAmount) {
+        this.ArabicaBeansAmount = ArabicaBeansAmount;
+    }
+
+    public void setRobustaBeansAmount(int RobustaBeansAmount) {
+        this.RobustaBeansAmount = RobustaBeansAmount;
+    }
+    
     public void useArabicaBeans(int amount) {
         int remainingBeans = ArabicaBeansAmount  - amount;
 

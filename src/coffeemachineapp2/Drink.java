@@ -47,6 +47,15 @@ private int ArabicaRequiredBeans;
         return ArabicaRequiredBeans;
     }
 
+    public void setRobustarequiredBeans(int RobustarequiredBeans) {
+        this.RobustarequiredBeans = RobustarequiredBeans;
+    }
+
+    public void setArabicaRequiredBeans(int ArabicaRequiredBeans) {
+        this.ArabicaRequiredBeans = ArabicaRequiredBeans;
+    }
+    
+
   
 
     public int getRequiredWater(int x) {

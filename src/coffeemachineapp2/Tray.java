@@ -9,11 +9,15 @@ package coffeemachineapp2;
  * @author abdsh
  */
 public class Tray {
-  private final int maximumCups=10;
+  private final int maximumCups=5;
    private int cupsUsed;
 
     public int getTraycapacity() {
         return maximumCups;
+    }
+
+    public void setCupsUsed(int cupsUsed) {
+        this.cupsUsed = cupsUsed;
     }
 
     
@@ -27,8 +31,15 @@ public class Tray {
     }
    
     public void clean()
-    { if(cupsUsed==maximumCups)
+    { 
        cupsUsed=0;
+    }
+    public boolean isClean(){
+        if (cupsUsed >=maximumCups) {
+          return false;
+        }
+        else
+            return true;
     }
     
 

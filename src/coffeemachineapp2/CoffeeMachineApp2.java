@@ -272,7 +272,7 @@ public static void start() {
         System.out.println("BeansLevel: " + coffeemahine.getBeansLevel() + " grams");
         System.out.println("WaterLevel: " + coffeemahine.getWaterLevel() + " ml");
         System.out.println("GrindLevel: " + coffeemahine.getGrindLevel());
-        System.out.println("Machine is " + (coffeemahine.isClean() ? "clean" : "not clean"));
+        System.out.println("Machine is " + (coffeemahine.getWasteTray().isClean() ? "clean" : "not clean"));
         
     } catch ( WaterNotEnoughException | BeansNotEnoughException | GrinderLevelException|TrayFullException e) {
         System.out.println("Error Message ❗ : " + e.getMessage());

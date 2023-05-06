@@ -24,6 +24,10 @@ public class WaterContainer {
         return waterAmount;
     }
 
+    public void setWaterAmount(int waterAmount) {
+        this.waterAmount = waterAmount;
+    }
+
 
 
     public void addWater(int amount)  {

@@ -18,7 +18,7 @@ public class CoffeeMachine {
     private Grinder grinder= new Grinder();
     private Tray wasteTray= new Tray();
     private int cupsDone;
-    private static final int MaximumCups = 10;
+    
 
     public CoffeeMachine(){
         cupsDone = 0;
@@ -40,6 +40,10 @@ public void selectGrindLevel(int level) {
     }
 }
 
+    public WaterContainer getWaterContainer() {
+        return waterContainer;
+    }
+
     public int getWaterCapacity() {
         return waterContainer.getWater();
     }
@@ -56,13 +60,11 @@ public void selectGrindLevel(int level) {
     public String getCoffeeName(){
         return Drink.getName();
     }
-    public boolean isClean(){
-        if (cupsDone ==10) {
-          return false;
-        }
-        else
-            return true;
+
+    public Tray getWasteTray() {
+        return wasteTray;
     }
+    
 //    public void addBeans(int amount)  {
 //        beansContainer.addBeans(amount);
 //    }
@@ -72,6 +74,7 @@ public void selectGrindLevel(int level) {
     }
    public void clean(){
  wasteTray.clean();
+ cupsDone=0;
    }
    // 
     public void selectCoffee(Drink coffeeType, int shots)  {
@@ -90,8 +93,9 @@ try {
     beansContainer.useArabicaBeans(arabicaBeans);
     beansContainer.useRobustaBeans(robustaBeans);
     waterContainer.useWater(requiredWater);
-            cupsDone++;
-if(cupsDone>=10)
+            wasteTray.setCupsUsed(cupsDone++);
+            
+if(!wasteTray.isClean())
     throw new TrayFullException();
 } catch (Exception ex) {
    
@@ -121,6 +125,31 @@ if(cupsDone>=10)
         return beansContainer;
     }
     
+    public void CustomCoffee(String name,int robusta,int arabica,int shots){
+    try {
+           
+            Drink customDrink = new Drink(name, shots);
+             if(customDrink.getShots()==0)
+                 waterContainer.useWater(30);
+             else if(customDrink.getShots()==1)
+ waterContainer.useWater(120);
+             else
+                 waterContainer.useWater(200);
+            
+             beansContainer.useArabicaBeans(arabica);
+             beansContainer.useRobustaBeans(robusta);
+           wasteTray.setCupsUsed(cupsDone++);
+            
+if(!wasteTray.isClean())
+    throw new TrayFullException();
+            
+            System.out.println("Custom drink created: " + customDrink.getName());
+        } catch (Exception ex) {
+            throw ex;
+            
+        }
+    }
+
     
 }
 
