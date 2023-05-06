@@ -6,6 +6,7 @@ package coffeemachineapp2;
 
 import coffeemachineapp2.Exceptions.GrinderLevelException;
 import coffeemachineapp2.Exceptions.TrayFullException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -65,7 +66,7 @@ public void selectGrindLevel(int level) {
 //    public void addBeans(int amount)  {
 //        beansContainer.addBeans(amount);
 //    }
-
+    
     public void addWater(int amount)  {
         waterContainer.addWater(amount);
     }
@@ -78,31 +79,42 @@ public void selectGrindLevel(int level) {
           int arabicaBeans = coffeeType.getArabicaRequiredBeans(shots);
         int requiredWater = coffeeType.getRequiredWater(shots);
 
-      
+                                             
+    
+
+
         grinder.setGrindSize(coffeeType.getGrindsize());
         
-        cupsDone++;
+
+try {
+    beansContainer.useArabicaBeans(arabicaBeans);
+    beansContainer.useRobustaBeans(robustaBeans);
+    waterContainer.useWater(requiredWater);
+            cupsDone++;
 if(cupsDone>=10)
     throw new TrayFullException();
-        int remainArabicabeans = beansContainer.useArabicaBeans(arabicaBeans);
-        int remainRobustabeans = beansContainer.useRobustaBeans(robustaBeans);
-        int remainwater = waterContainer.useWater(requiredWater);
+} catch (Exception ex) {
+   
+    throw ex;
+}
+
+        
 
        
 
-        System.out.println("Enjoy your " + Drink.getName() + " coffee!");
+//        System.out.println("Enjoy your " + Drink.getName() + " coffee!");
 
         int caffeine = coffeeType.getCaffine();
         
-        System.out.println("Caffeine: " + caffeine + " mg");
+//        System.out.println("Caffeine: " + caffeine + " mg");
        
 
         
-
-        System.out.println("Remaining Arabica beans: " + remainArabicabeans);
-        System.out.println("Remaining Robusta beans: " + remainRobustabeans);
-
-        System.out.println("Remaining water: " + remainwater);
+//
+//        System.out.println("Remaining Arabica beans: " + remainArabicabeans);
+//        System.out.println("Remaining Robusta beans: " + remainRobustabeans);
+//
+//        System.out.println("Remaining water: " + remainwater);
     }
 
     public BeansContainer getBeansContainer() {

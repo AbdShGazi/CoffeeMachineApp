@@ -39,7 +39,7 @@ public class BeansContainer {
 
        RobustaBeansAmount += amount;
     }
-    public int useRobustaBeans(int amount) {
+    public void useRobustaBeans(int amount) {
         int remainingBeans = RobustaBeansAmount  - amount;
 
         if (remainingBeans < 0) {
@@ -47,10 +47,10 @@ public class BeansContainer {
         }
 
         RobustaBeansAmount = remainingBeans;
-return remainingBeans;
+
        
     }
-    public int useArabicaBeans(int amount) {
+    public void useArabicaBeans(int amount) {
         int remainingBeans = ArabicaBeansAmount  - amount;
 
         if (remainingBeans < 0) {
@@ -58,7 +58,7 @@ return remainingBeans;
         }
 
        ArabicaBeansAmount = remainingBeans;
-return remainingBeans;
+
        
     }
 

@@ -34,7 +34,7 @@ public class WaterContainer {
         waterAmount += amount;
     }
 
-    public int useWater(int amount) {
+    public void useWater(int amount) {
         int remainingWater = waterAmount - amount;
 
         if (remainingWater < 0) {
@@ -42,7 +42,7 @@ public class WaterContainer {
         }
 
         waterAmount = remainingWater;
-return waterAmount;
+;
        
     }
 
