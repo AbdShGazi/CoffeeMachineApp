@@ -77,7 +77,7 @@ public class Drink {
     }
 
     public String getInfo() {
-        return "" + getName() + "" + getinfoShots();
+        return "" + getName() + " " + getinfoShots();
     }
 
 }

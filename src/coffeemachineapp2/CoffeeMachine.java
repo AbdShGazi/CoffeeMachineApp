@@ -23,15 +23,15 @@ public class CoffeeMachine {
 
     public CoffeeMachine(FileLogger logger) {
         cupsDone = 0;
-         this.logger = logger;
-        beansContainer =new BeansContainer(logger);
-       waterContainer=new WaterContainer(logger);
-       grinder = new Grinder(logger);
-      wasteTray = new Tray(logger);
+        this.logger = logger;
+        beansContainer = new BeansContainer(logger);
+        waterContainer = new WaterContainer(logger);
+        grinder = new Grinder(logger);
+        wasteTray = new Tray(logger);
     }
 
     public void start() {
-        logger.log("Starting...");
+        logger.log("Starting..");
     }
 
     public void selectGrindLevel(int level) {
@@ -40,9 +40,8 @@ public class CoffeeMachine {
         } else {
 
             grinder.setGrindSize(level);
+            logger.log("Grind Level Setted to : " + level);
 
-            logger.log("Grind Leve: " + level);
-            
         }
     }
 
@@ -50,19 +49,19 @@ public class CoffeeMachine {
         return waterContainer;
     }
 
-    public int getWaterCapacity() {
+    public double getWaterCapacity() {
         return waterContainer.getWater();
     }
 
-    public int getWaterLevel() {
+    public double getWaterLevel() {
         return waterContainer.getWaterAmount();
     }
 
-    public int getBeansLevel() {
+    public double getBeansLevel() {
         return beansContainer.getArabicaBeansAmount() + beansContainer.getRobustaBeansAmount();
     }
 
-    public int getGrindLevel() {
+    public double getGrindLevel() {
         return grinder.getGrindSize();
     }
 
@@ -79,6 +78,7 @@ public class CoffeeMachine {
 //    }
     public void addWater(int amount) {
         waterContainer.addWater(amount);
+
     }
 
     public void clean() {
@@ -93,14 +93,14 @@ public class CoffeeMachine {
         int requiredWater = coffeeType.getRequiredWater(shots);
 
         grinder.setGrindSize(coffeeType.getGrindsize());
-        Drink d = new Drink(coffeeType.getName(),shots);
+        Drink d = new Drink(coffeeType.getName(), shots);
 
         try {
             beansContainer.useArabicaBeans(arabicaBeans);
             beansContainer.useRobustaBeans(robustaBeans);
             waterContainer.useWater(requiredWater);
             wasteTray.setCupsUsed(cupsDone++);
-            logger.log("You ordered: "+ d.getInfo());
+            logger.log("You ordered: " + d.getInfo());
 
             if (!wasteTray.isClean()) {
                 throw new TrayFullException();
@@ -124,20 +124,18 @@ public class CoffeeMachine {
     public BeansContainer getBeansContainer() {
         return beansContainer;
     }
-    public double calculateCaffeine( double arabica, double robusta) {
-    double caffeine = 0;
-   caffeine=arabica*12+robusta*27;
-    return caffeine;
-}
 
+    public double calculateCaffeine(double arabica, double robusta) {
+        double caffeine = 0;
+        caffeine = arabica * 12 + robusta * 27;
+        return caffeine;
+    }
 
 //    public int CalculateCaffiene(Drink s,int shot) {
 //return (s.getArabicaRequiredBeans(shot)*12 + s.getRobustarequiredBeans(shot)*27);
 //    }
-
-   public void CustomCoffee(String name, int arabica, int robusta, int shots) {
+    public void CustomCoffee(String name, double arabica, double robusta, int shots,int grindLevel) {
         try {
-           
 
             Drink customDrink = new Drink(name, shots);
             if (customDrink.getShots() == 0) {
@@ -147,16 +145,15 @@ public class CoffeeMachine {
             } else {
                 waterContainer.useWater(200);
             }
-
+grinder.grind(grindLevel);
             beansContainer.useArabicaBeans(arabica);
             beansContainer.useRobustaBeans(robusta);
             wasteTray.setCupsUsed(cupsDone++);
-  logger.log("You ordered: "+ customDrink.getName());
+            logger.log("You ordered: " + customDrink.getName());
             if (!wasteTray.isClean()) {
                 throw new TrayFullException();
             }
- 
-            System.out.println("Custom drink created: " + customDrink.getName());
+
         } catch (Exception ex) {
             throw ex;
 

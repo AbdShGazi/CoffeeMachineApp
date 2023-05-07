@@ -33,7 +33,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
     FileLogger logger = new FileLogger();
     CoffeeMachine coffeemahine = new CoffeeMachine(logger);
     ArrayList<String> ListInfo = new ArrayList<>();
-
+int level;
     /**
      * Creates new form CoffeeMachineGui
      */
@@ -450,6 +450,11 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jSlider2.setToolTipText("");
         jSlider2.setValue(3);
         jSlider2.setEnabled(false);
+        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider2StateChanged(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(224, 193, 159));
         jButton3.setText("Make My Coffee");
@@ -818,6 +823,11 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jSlider4.setToolTipText("");
         jSlider4.setValue(3);
         jSlider4.setEnabled(false);
+        jSlider4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider4StateChanged(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(224, 193, 159));
         jButton6.setText("Make my coffee");
@@ -1048,20 +1058,23 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("tab1", null, jPanel1, "");
+        jTabbedPane1.addTab("Main", null, jPanel1, "");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1091,7 +1104,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
         try {
             if (jRadioButton8.isSelected()) {
-                coffeemahine.CustomCoffee("Programmer Coffee", 0, 14, 2);
+                coffeemahine.CustomCoffee("Programmer Coffee", 0, 14, 2,1);
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
                 jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
@@ -1112,6 +1125,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         try {
+           
             if (jTextField7.getText().isEmpty()) {
                 throw new InputMismatchException("Please Enter your Coffee Name");
             }
@@ -1136,7 +1150,8 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
             }
 
             if (jRadioButton5.isSelected()) {
-                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 0);
+                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 0,level);
+                
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
 
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
@@ -1147,7 +1162,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                 jTextField12.setText(caffeine + "");
 
             } else if (jRadioButton6.isSelected()) {
-                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 1);
+                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 1,level);
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
 
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
@@ -1158,7 +1173,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                 jTextField12.setText(caffeine + "");
 
             } else if (jRadioButton7.isSelected()) {
-                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 2);
+                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 2,level);
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
 
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
@@ -1213,7 +1228,6 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
@@ -1222,12 +1236,10 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jTextField8FocusLost
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -1247,6 +1259,10 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         coffeemahine.start();
         Display();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -1319,6 +1335,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
         jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
         jTextField6.setText(coffeemahine.getWaterLevel() + "");
+        Display();
     }//GEN-LAST:event_click
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1368,7 +1385,6 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
             return;
 
         }
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -1411,7 +1427,6 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
@@ -1428,16 +1443,22 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+      level=  jSlider2.getValue();
+        
+    }//GEN-LAST:event_jSlider2StateChanged
+
+    private void jSlider4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider4StateChanged
+        // TODO add your handling code here:
+        level=jSlider4.getValue();
+    }//GEN-LAST:event_jSlider4StateChanged
 public static void setEnabledAll(Component component, boolean enabled) {
         component.setEnabled(enabled);
         if (component instanceof Container) {

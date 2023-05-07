@@ -31,6 +31,7 @@ FileLogger logger;
 
     public void setWaterAmount(int waterAmount) {
         this.waterAmount = waterAmount;
+        logger.log( "Water Conatiner has been filled ");
     }
 
 
@@ -41,7 +42,7 @@ FileLogger logger;
         }
 
         waterAmount += amount;
-        logger.log("added");
+        logger.log("You Added "+ amount +" ml of Water");
     }
 
     public void useWater(int amount) {
@@ -52,7 +53,7 @@ FileLogger logger;
         }
 
         waterAmount = remainingWater;
-;
+ logger.log(amount +" ml of Water Beans has been Used");
        
     }
 

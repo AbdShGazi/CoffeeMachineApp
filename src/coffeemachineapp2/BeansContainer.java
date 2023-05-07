@@ -14,8 +14,8 @@ import coffeemachineapp2.Exceptions.BeansNotEnoughException;
 public class BeansContainer {
 //    private final  int beansCapacity=300;
 //    private int beansAmount;
-    private int ArabicaBeansAmount;
-    private int RobustaBeansAmount;
+    private double ArabicaBeansAmount;
+    private double RobustaBeansAmount;
     int arabicaBeansCapacity = 400;
     int robustaBeansCapacity = 400;
   private FileLogger logger;
@@ -39,60 +39,64 @@ public BeansContainer(FileLogger logger) {
         }
 
         ArabicaBeansAmount += amount;
-        logger.log("Amount is setted");
+        logger.log("You Added "+ amount +" gm of Arabica Beans");
     }
-    public void addRobustaBeanS(int amount)  {
+    public void addRobustaBeanS(double amount)  {
         if (RobustaBeansAmount + amount > robustaBeansCapacity ) {
             throw new BeansOverCapacityException();
         }
 
        RobustaBeansAmount += amount;
+        logger.log("You Added "+ amount +" gm of Robusta Beans");
     }
-    public void useRobustaBeans(int amount) {
-        int remainingBeans = RobustaBeansAmount  - amount;
+    public void useRobustaBeans(double amount) {
+        double remainingBeans = RobustaBeansAmount  - amount;
 
         if (remainingBeans < 0) {
            throw new BeansNotEnoughException();
         }
 
         RobustaBeansAmount = remainingBeans;
+        logger.log(amount +" gm of Robusta Beans has been Used");
 
        
     }
 
     public void setArabicaBeansAmount(int ArabicaBeansAmount) {
         this.ArabicaBeansAmount = ArabicaBeansAmount;
+          logger.log( "Arabica Conatiner has been filled ");
     }
 
     public void setRobustaBeansAmount(int RobustaBeansAmount) {
         this.RobustaBeansAmount = RobustaBeansAmount;
+        logger.log( "Roubsta Conatiner has been filled ");
     }
     
-    public void useArabicaBeans(int amount) {
-        int remainingBeans = ArabicaBeansAmount  - amount;
+    public void useArabicaBeans(double amount) {
+        double remainingBeans = ArabicaBeansAmount  - amount;
 
         if (remainingBeans < 0) {
            throw new BeansNotEnoughException();
         }
 
        ArabicaBeansAmount = remainingBeans;
-
+ logger.log(amount +" gm of Robusta Beans has been Used");
        
     }
 
-    public int getArabicaBeansAmount() {
+    public double getArabicaBeansAmount() {
         return ArabicaBeansAmount;
     }
 
-    public int getRobustaBeansAmount() {
+    public double getRobustaBeansAmount() {
         return RobustaBeansAmount;
     }
 
-    public int getArabicaBeansCapacity() {
+    public double getArabicaBeansCapacity() {
         return arabicaBeansCapacity;
     }
 
-    public int getRobustaBeansCapacity() {
+    public double getRobustaBeansCapacity() {
         return robustaBeansCapacity;
     }
 
