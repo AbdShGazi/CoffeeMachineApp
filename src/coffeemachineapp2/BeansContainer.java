@@ -18,7 +18,15 @@ public class BeansContainer {
     private int RobustaBeansAmount;
     int arabicaBeansCapacity = 400;
     int robustaBeansCapacity = 400;
+  private FileLogger logger;
+        
+    
+public BeansContainer(FileLogger logger) {
+        
+        this.logger = logger;
+    }
 
+   
     public BeansContainer() {
         this.ArabicaBeansAmount =0;
         this.RobustaBeansAmount =0;
@@ -31,6 +39,7 @@ public class BeansContainer {
         }
 
         ArabicaBeansAmount += amount;
+        logger.log("Amount is setted");
     }
     public void addRobustaBeanS(int amount)  {
         if (RobustaBeansAmount + amount > robustaBeansCapacity ) {

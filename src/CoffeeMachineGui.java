@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -58,7 +59,6 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         jScrollBar1 = new javax.swing.JScrollBar();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -154,21 +154,9 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLoggerList1 = new javax.swing.JList<>();
+        jScrollBar2 = new javax.swing.JScrollBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1176, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1062, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel2);
 
         jPanel1.setBackground(new java.awt.Color(210, 180, 140));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -313,17 +301,17 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4)))
+                                .addGap(20, 20, 20)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField4)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -474,14 +462,21 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
         jTextField11.setEditable(false);
         jTextField11.setEnabled(false);
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel47.setText("Caffiene :");
 
         jLabel48.setText("mg");
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/caffeine (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -495,94 +490,94 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(75, 75, 75)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(170, 170, 170))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jRadioButton1)
                                 .addGap(92, 92, 92)
-                                .addComponent(jRadioButton2)
-                                .addGap(103, 103, 103)
-                                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel47)
-                                        .addGap(44, 44, 44))
-                                    .addComponent(jLabel48, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap())))))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(64, 64, 64))
+                                .addComponent(jRadioButton2))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel20))
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(157, 157, 157)
+                        .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 52, Short.MAX_VALUE)
+                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel48)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel40)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel16)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(157, 157, 157)
-                                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(46, 46, 46))))
+                                .addComponent(jLabel47))
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel19))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jRadioButton1)
-                                        .addComponent(jRadioButton2))
-                                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel20)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel16)
+                                            .addComponent(jLabel19))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jRadioButton1)
+                                                .addComponent(jRadioButton2))
+                                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel17)
+                                            .addComponent(jLabel20)))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel47)
                                             .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel48)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jRadioButton4))
-                                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(9, 9, 9)))
-                .addComponent(jRadioButton3)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(61, 61, 61)
+                                                .addComponent(jRadioButton4))
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(31, 31, 31)
+                                                .addComponent(jLabel48)))))
+                                .addGap(9, 9, 9)))
+                        .addComponent(jRadioButton3))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel18)
@@ -805,10 +800,12 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jLabel50.setText("mg");
 
         jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel49.setText("Caffiene :");
 
         jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/caffeine (1).png"))); // NOI18N
 
         jSlider4.setMajorTickSpacing(1);
@@ -835,7 +832,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -891,7 +888,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel38)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -913,26 +910,29 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                         .addComponent(jButton6)
                         .addGap(25, 25, 25)))
                 .addGap(16, 16, 16)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(0, 117, Short.MAX_VALUE)
-                                .addComponent(jLabel50))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel49)
-                                .addGap(0, 44, Short.MAX_VALUE))))))
+                        .addComponent(jLabel46)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel49))
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel49)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel50)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -996,22 +996,12 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addComponent(jLabel39)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel49)
-                                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel50)))
+                                .addComponent(jLabel39)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButton8)
                                 .addGap(18, 18, 18)
@@ -1022,8 +1012,8 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                                 .addComponent(jLabel44)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel45))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
-                            .addComponent(jSeparator11))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1045,16 +1035,15 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(18, 18, 18))
+                .addGap(1, 1, 1)
+                .addComponent(jScrollBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1064,14 +1053,12 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, Short.MAX_VALUE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab1", null, jPanel1, "");
@@ -1089,6 +1076,368 @@ public class CoffeeMachineGui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLoggerList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jLoggerList1ValueChanged
+        // TODO add your handling code here:
+        int index = jLoggerList1.getSelectedIndex();
+        //            FileReader fileReader = new FileReader("machine");
+        if (index != -1) {
+
+        }
+    }//GEN-LAST:event_jLoggerList1ValueChanged
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            if (jRadioButton8.isSelected()) {
+                coffeemahine.CustomCoffee("Programmer Coffee", 0, 14, 2);
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+                jTextField6.setText(coffeemahine.getWaterLevel() + "");
+
+                jTextField12.setText(coffeemahine.calculateCaffeine(0, 14)+"");
+                Display();
+                return;
+            }
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (jTextField7.getText().isEmpty()) {
+                throw new InputMismatchException("Please Enter your Coffee Name");
+            }
+
+            int arabica = 0;
+            int robusta = 0;
+
+            if (!jTextField8.getText().isEmpty()) {
+                arabica = Integer.parseInt(jTextField8.getText());
+            }
+
+            if (!jTextField9.getText().isEmpty()) {
+                robusta = Integer.parseInt(jTextField9.getText());
+            }
+
+            if (arabica + robusta > 14) {
+                throw new InputMismatchException("The maximum grams of beans is 14 !");
+            }
+
+            if (!jRadioButton7.isSelected() && !jRadioButton5.isSelected() && !jRadioButton6.isSelected()) {
+                throw new InputMismatchException("Select your Coffee Size !");
+            }
+
+            if (jRadioButton5.isSelected()) {
+                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 0);
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+
+                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+                jTextField6.setText(coffeemahine.getWaterLevel() + "");
+
+                double caffeine = coffeemahine.calculateCaffeine(arabica, robusta);
+                jTextField12.setText(caffeine + "");
+
+            } else if (jRadioButton6.isSelected()) {
+                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 1);
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+
+                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+                jTextField6.setText(coffeemahine.getWaterLevel() + "");
+
+                double caffeine = coffeemahine.calculateCaffeine(arabica, robusta);
+                jTextField12.setText(caffeine + "");
+
+            } else if (jRadioButton7.isSelected()) {
+                coffeemahine.CustomCoffee(jTextField7.getText(), arabica, robusta, 2);
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+
+                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+                jTextField6.setText(coffeemahine.getWaterLevel() + "");
+
+                double caffeine = coffeemahine.calculateCaffeine(arabica, robusta);
+                jTextField12.setText(caffeine + "");
+            }
+
+            Display();
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField9.setText("");
+            jRadioButton5.setSelected(false);
+            jRadioButton6.setSelected(false);
+            jRadioButton7.setSelected(false);
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Please Enter a valid number");
+            jTextField8.setText("");
+            jTextField9.setText("");
+        } catch (InputMismatchException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton8ActionPerformed
+
+    private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
+        try {
+            if (Integer.parseInt(jTextField9.getText()) < 1) {
+                JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
+                jTextField9.setText("");
+                return;
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField9KeyReleased
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8KeyTyped
+
+    private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField8KeyReleased
+
+    private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8KeyPressed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField8FocusLost
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+
+        coffeemahine.clean();
+        coffeemahine.getWasteTray().clean();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setEnabledAll(jPanel1, true);
+        coffeemahine.start();
+        Display();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+
+        if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) {
+            JOptionPane.showMessageDialog(rootPane, "Select your Coffee Type !");
+        } else if (!jRadioButton3.isSelected() && !jRadioButton4.isSelected()) {
+            JOptionPane.showMessageDialog(rootPane, "Select your Coffee Size !");
+        }
+
+        try {
+
+            if (jRadioButton3.isSelected() && jRadioButton1.isSelected()) {
+                Americano A1 = new Americano(0);
+                coffeemahine.selectCoffee(A1, 0);
+                jTextField11.setText(A1.getCaffine() + "");
+                {
+                    JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+                }
+            } else if (jRadioButton4.isSelected() && jRadioButton1.isSelected()) {
+                Americano A1 = new Americano(1);
+                coffeemahine.selectCoffee(A1, 1);
+                jTextField11.setText(A1.getCaffine() + "");
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+                jTextField11.setText(A1.getCaffine() + "");
+                jTextField11.setText(A1.getCaffine() + "");
+            } else if (jRadioButton3.isSelected() && jRadioButton2.isSelected()) {
+                Espresso A1 = new Espresso(0);
+                coffeemahine.selectCoffee(A1, 0);
+                jTextField11.setText(A1.getCaffine() + "");
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+            } else if (jRadioButton4.isSelected() && jRadioButton2.isSelected()) {
+                Espresso A1 = new Espresso(1);
+                coffeemahine.selectCoffee(A1, 1);
+                jTextField11.setText(A1.getCaffine() + "");
+
+                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+            }
+            Display();
+        } catch (NumberFormatException ex) {
+            // Handle the exception
+            JOptionPane.showMessageDialog(this, "Please enter valid numbers for Arabica, Robusta, and Shots", "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            return;
+        } catch (Exception ex) {
+            // Handle other exceptions
+            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            return;
+        }
+
+        jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+        jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+        jTextField6.setText(coffeemahine.getWaterLevel() + "");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click
+        // TODO add your handling code here:
+        coffeemahine.getBeansContainer().setArabicaBeansAmount(400);
+        coffeemahine.getBeansContainer().setRobustaBeansAmount(400);
+        coffeemahine.getWaterContainer().setWaterAmount(1500);
+        jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+        jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+        jTextField6.setText(coffeemahine.getWaterLevel() + "");
+    }//GEN-LAST:event_click
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            if (jTextField1.getText().isEmpty() && jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()) {
+                throw new InputMismatchException("Enter The Amount !");
+            } else {
+                if (!jTextField1.getText().isEmpty()) {
+                    int RoubstaToAdd = Integer.parseInt(jTextField1.getText());
+                    coffeemahine.getBeansContainer().addRobustaBeanS(RoubstaToAdd);
+                }
+
+                if (!jTextField2.getText().isEmpty()) {
+                    int ArabicaToAdd = Integer.parseInt(jTextField2.getText());
+                    coffeemahine.getBeansContainer().addArabicaBeans(ArabicaToAdd);
+
+                }
+
+                if (!jTextField3.getText().isEmpty()) {
+
+                    int WaterToAdd = Integer.parseInt(jTextField3.getText());
+                    coffeemahine.addWater(WaterToAdd);
+                }
+
+                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
+                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
+                jTextField6.setText(coffeemahine.getWaterLevel() + "");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                Display();
+            }
+
+        } catch (InputMismatchException ex) {
+            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            return;
+
+        }
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            return;
+
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        // TODO add your handling code here:
+        try {
+            if (Integer.parseInt(jTextField3.getText()) < 1) {
+                JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
+                jTextField3.setText("");
+                return;
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        // TODO add your handling code here:
+        try {
+            if (Integer.parseInt(jTextField2.getText()) < 1) {
+
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField2.setText("");
+            return;
+        }
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        // TODO add your handling code here:
+        try {
+            if (Integer.parseInt(jTextField1.getText()) < 1) {
+                JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
+                jTextField1.setText("");
+                return;
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
 public static void setEnabledAll(Component component, boolean enabled) {
         component.setEnabled(enabled);
         if (component instanceof Container) {
@@ -1108,345 +1457,26 @@ public static void setEnabledAll(Component component, boolean enabled) {
         }
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        try {
-            if (jTextField1.getText().isEmpty() && jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(rootPane, "Enter The Amount !");
-            } else {
-                if (!jTextField1.getText().isEmpty()) {
-                    int RoubstaToAdd = Integer.parseInt(jTextField1.getText());
-                    coffeemahine.getBeansContainer().addRobustaBeanS(RoubstaToAdd);
-                }
-
-                if (!jTextField2.getText().isEmpty()) {
-                    int ArabicaToAdd = Integer.parseInt(jTextField2.getText());
-                    coffeemahine.getBeansContainer().addArabicaBeans(ArabicaToAdd);
-                }
-
-                if (!jTextField3.getText().isEmpty()) {
-
-                    int WaterToAdd = Integer.parseInt(jTextField3.getText());
-                    coffeemahine.addWater(WaterToAdd);
-                }
-
-                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-                jTextField6.setText(coffeemahine.getWaterLevel() + "");
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jTextField3.setText("");
-            }
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-
+ void Display() {
+    try (FileReader fileReader = new FileReader("machine.log"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+        String line;
+        ListInfo.clear(); 
+        while ((line = bufferedReader.readLine()) != null) {
+            ListInfo.add(line);
+            
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        setEnabledAll(jPanel1, true);
-        Display();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-
-        if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) {
-            JOptionPane.showMessageDialog(rootPane, "Select your Coffee Type !");
-        } else if (!jRadioButton3.isSelected() && !jRadioButton4.isSelected()) {
-            JOptionPane.showMessageDialog(rootPane, "Select your Coffee Size !");
-        }
-
-        try {
-            if (jRadioButton3.isSelected() && jRadioButton1.isSelected()) {
-                Americano A1 = new Americano(0);
-                coffeemahine.selectCoffee(A1, 0);
-                jTextField11.setText(A1.getCaffine() + "");
-                    Display();
-                {
-                    JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-
-                }
-            } else if (jRadioButton4.isSelected() && jRadioButton1.isSelected()) {
-                Americano A1 = new Americano(1);
-                coffeemahine.selectCoffee(A1, 1);
-                jTextField11.setText(A1.getCaffine() + "");
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                Display();
-
-                jTextField11.setText(A1.getCaffine() + "");
-                jTextField11.setText(A1.getCaffine() + "");
-            } else if (jRadioButton3.isSelected() && jRadioButton2.isSelected()) {
-                Espresso A1 = new Espresso(0);
-                coffeemahine.selectCoffee(A1, 0);
-                jTextField11.setText(A1.getCaffine() + "");
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                Display();
-
-            } else if (jRadioButton4.isSelected() && jRadioButton2.isSelected()) {
-                Espresso A1 = new Espresso(1);
-                coffeemahine.selectCoffee(A1, 1);
-                jTextField11.setText(A1.getCaffine() + "");
-
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                Display();
-
-            }
-
-        } catch (Exception ex) {
-            // Handle the exception
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-        jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-        jTextField6.setText(coffeemahine.getWaterLevel() + "");
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-
-        coffeemahine.clean();
-        coffeemahine.getWasteTray().clean();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click
-        // TODO add your handling code here:
-        coffeemahine.getBeansContainer().setArabicaBeansAmount(400);
-        coffeemahine.getBeansContainer().setRobustaBeansAmount(400);
-        coffeemahine.getWaterContainer().setWaterAmount(1500);
-        jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-        jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-        jTextField6.setText(coffeemahine.getWaterLevel() + "");
-    }//GEN-LAST:event_click
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        try {
-
-            if (jTextField7.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(rootPane, "Please Enter your Coffee Name");
-                return;
-            } else if (jTextField8.getText().isEmpty() && jTextField9.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(rootPane, "Please Enter The beans amount");
-                return;
-            } else if (!jRadioButton7.isSelected() && !jRadioButton5.isSelected() && !jRadioButton6.isSelected()) {
-                JOptionPane.showMessageDialog(rootPane, "Select your Coffee Size !");
-                return;
-            } else if (Integer.parseInt(jTextField9.getText()) + Integer.parseInt(jTextField8.getText()) > 14) {
-                JOptionPane.showMessageDialog(rootPane, "The maximum grams of beans is 14 !");
-                jTextField8.setText("");
-                jTextField9.setText("");
-                return;
-
-            }
-
-            if (jRadioButton5.isSelected()) {
-                coffeemahine.CustomCoffee(jTextField7.getText(), Integer.parseInt(jTextField8.getText()), Integer.parseInt(jTextField9.getText()), 0);
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-
-                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-                jTextField6.setText(coffeemahine.getWaterLevel() + "");
-                double arabica = Double.parseDouble(jTextField8.getText());
-                double Roubsta = Double.parseDouble(jTextField9.getText());
-                jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta) + "");
-                return;
-            } else if (jRadioButton6.isSelected()) {
-                coffeemahine.CustomCoffee(jTextField7.getText(), Integer.parseInt(jTextField8.getText()), Integer.parseInt(jTextField9.getText()), 1);
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-                jTextField6.setText(coffeemahine.getWaterLevel() + "");
-
-                double arabica = Double.parseDouble(jTextField8.getText());
-                double Roubsta = Double.parseDouble(jTextField9.getText());
-                jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta) + "");
-                return;
-            } else if (jRadioButton7.isSelected()) {
-                coffeemahine.CustomCoffee(jTextField7.getText(), Integer.parseInt(jTextField8.getText()), Integer.parseInt(jTextField9.getText()), 2);
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-                jTextField6.setText(coffeemahine.getWaterLevel() + "");
-
-                double arabica = Double.parseDouble(jTextField8.getText());
-                double Roubsta = Double.parseDouble(jTextField9.getText());
-                jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta) + "");
-                return;
-            }
-
-        } catch (Exception ex) {
-
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton8ActionPerformed
-
-    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jTextField8FocusLost
-
-    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTextField8KeyTyped
-
-    private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTextField8KeyPressed
-
-    private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jTextField8KeyReleased
-
-    private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
-
-    }//GEN-LAST:event_jTextField9KeyReleased
-
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1KeyPressed
-
-    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
-        // TODO add your handling code here:
-        if (Integer.parseInt(jTextField1.getText()) < 1) {
-            JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
-            jTextField1.setText("");
-            return;
-        }
-
-    }//GEN-LAST:event_jTextField1KeyReleased
-
-    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
-        // TODO add your handling code here:
-        try {
-            if (Integer.parseInt(jTextField2.getText()) < 1) {
-
-            }
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            jTextField2.setText("");
-            return;
-        }
-    }//GEN-LAST:event_jTextField2KeyReleased
-
-    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
-        // TODO add your handling code here:
-        if (Integer.parseInt(jTextField3.getText()) < 1) {
-            JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
-            jTextField3.setText("");
-            return;
-        }
-
-    }//GEN-LAST:event_jTextField3KeyReleased
-
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jTextField1KeyTyped
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-
-        try {
-            if (jRadioButton8.isSelected()) {
-                coffeemahine.CustomCoffee("Programmer Coffee", 0, 14, 2);
-                JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
-                jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
-                jTextField6.setText(coffeemahine.getWaterLevel() + "");
-
-                jTextField12.setText(coffeemahine.calculateCaffeine(0, 14) + "");
-                return;
-            }
-
-        } catch (Exception ex) {
-
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    void Display() {
-        try (FileReader fileReader = new FileReader("machine.log"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                ListInfo.add(line);
-                // process each line of text as needed
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
-        }
-        String[] arr = new String[ListInfo.size()];
-        for (int i = 0; i < ListInfo.size(); i++) {
-            arr[i] = ListInfo.get(i);
-        }
-        jLoggerList1.setListData(arr);
+    } catch (IOException e) {
+        System.err.println("Error reading file: " + e.getMessage());
     }
+    String[] arr = new String[ListInfo.size()];
+    for (int i = 0; i < ListInfo.size(); i++) {
+        arr[i] = ListInfo.get(i);
+    }
+    jLoggerList1.setListData(arr);
+}
 
-    private void jLoggerList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jLoggerList1ValueChanged
-        // TODO add your handling code here:
-        int index = jLoggerList1.getSelectedIndex();
-        //            FileReader fileReader = new FileReader("machine");
-        if (index != -1) {
 
-        }
-    }//GEN-LAST:event_jLoggerList1ValueChanged
+
 
     /**
      * @param args the command line arguments
@@ -1545,7 +1575,6 @@ public static void setEnabledAll(Component component, boolean enabled) {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jLoggerList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1559,6 +1588,7 @@ public static void setEnabledAll(Component component, boolean enabled) {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;

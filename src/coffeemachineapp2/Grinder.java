@@ -13,10 +13,12 @@ import coffeemachineapp2.Exceptions.GrinderLevelException;
 public class Grinder {
     private int grindLevel;
     private int beansNedded;
+private FileLogger logger;
 
-    public Grinder() {
-        this.grindLevel = 1;
+    public Grinder(FileLogger logger) {
+        this.logger = logger;
     }
+    
 
     public int getBeansNedded() {
         return beansNedded;

@@ -14,10 +14,15 @@ import coffeemachineapp2.Exceptions.WaterOverflowException;
 public class WaterContainer {
     private final int waterCapacity=1500;
     private int waterAmount;
+FileLogger logger;
 
     public WaterContainer() {
        
         waterAmount = 0;
+    }
+
+    public WaterContainer(FileLogger logger) {
+        this.logger = logger;
     }
 
     public int getWaterAmount() {
@@ -36,6 +41,7 @@ public class WaterContainer {
         }
 
         waterAmount += amount;
+        logger.log("added");
     }
 
     public void useWater(int amount) {

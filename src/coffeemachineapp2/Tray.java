@@ -11,6 +11,12 @@ package coffeemachineapp2;
 public class Tray {
   private final int maximumCups=5;
    private int cupsUsed;
+   private FileLogger logger;
+
+    public Tray(FileLogger logger) {
+        this.logger = logger;
+    }
+   
 
     public int getTraycapacity() {
         return maximumCups;

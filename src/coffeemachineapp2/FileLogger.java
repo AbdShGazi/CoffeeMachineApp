@@ -26,7 +26,7 @@ public class FileLogger implements Logger {
     public void log(String msg) {
         try {
             FileWriter fileWriter = new FileWriter("machine.log", true);
-            fileWriter.write("in the history of " + formattedDate + " This action: " + msg+"\n\n");
+            fileWriter.write("in the history of " + formattedDate + " The action: " + msg+"\n\n");
             fileWriter.close();
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Error:" + ex.getMessage());

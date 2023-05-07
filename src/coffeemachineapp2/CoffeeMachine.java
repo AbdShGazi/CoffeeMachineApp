@@ -14,16 +14,20 @@ import javax.swing.JOptionPane;
  */
 public class CoffeeMachine {
 
-    private BeansContainer beansContainer = new BeansContainer();
-    private WaterContainer waterContainer = new WaterContainer();
-    private Grinder grinder = new Grinder();
-    private Tray wasteTray = new Tray();
+    private BeansContainer beansContainer = null;
+    private WaterContainer waterContainer = null;
+    private Grinder grinder = null;
+    private Tray wasteTray = null;
     private int cupsDone;
     FileLogger logger;
 
     public CoffeeMachine(FileLogger logger) {
         cupsDone = 0;
-        this.logger = logger;
+         this.logger = logger;
+        beansContainer =new BeansContainer(logger);
+       waterContainer=new WaterContainer(logger);
+       grinder = new Grinder(logger);
+      wasteTray = new Tray(logger);
     }
 
     public void start() {
@@ -131,8 +135,9 @@ public class CoffeeMachine {
 //return (s.getArabicaRequiredBeans(shot)*12 + s.getRobustarequiredBeans(shot)*27);
 //    }
 
-    public void CustomCoffee(String name, int arabica, int robusta, int shots) {
+   public void CustomCoffee(String name, int arabica, int robusta, int shots) {
         try {
+           
 
             Drink customDrink = new Drink(name, shots);
             if (customDrink.getShots() == 0) {
@@ -146,15 +151,16 @@ public class CoffeeMachine {
             beansContainer.useArabicaBeans(arabica);
             beansContainer.useRobustaBeans(robusta);
             wasteTray.setCupsUsed(cupsDone++);
-
+  logger.log("You ordered: "+ customDrink.getName());
             if (!wasteTray.isClean()) {
                 throw new TrayFullException();
             }
-
+ 
             System.out.println("Custom drink created: " + customDrink.getName());
         } catch (Exception ex) {
             throw ex;
 
         }
     }
+
 }
