@@ -16,8 +16,8 @@ public class BeansContainer {
 //    private int beansAmount;
     private double ArabicaBeansAmount;
     private double RobustaBeansAmount;
-    int arabicaBeansCapacity = 400;
-    int robustaBeansCapacity = 400;
+    double arabicaBeansCapacity = 400;
+    double robustaBeansCapacity = 400;
   private FileLogger logger;
         
     
@@ -33,7 +33,7 @@ public BeansContainer(FileLogger logger) {
     }
    
 
-    public void addArabicaBeans(int amount)  {
+    public void addArabicaBeans(double amount)  {
         if (ArabicaBeansAmount + amount > arabicaBeansCapacity ) {
             throw new BeansOverCapacityException();
         }
@@ -62,12 +62,12 @@ public BeansContainer(FileLogger logger) {
        
     }
 
-    public void setArabicaBeansAmount(int ArabicaBeansAmount) {
+    public void setArabicaBeansAmount(double ArabicaBeansAmount) {
         this.ArabicaBeansAmount = ArabicaBeansAmount;
           logger.log( "Arabica Conatiner has been filled ");
     }
 
-    public void setRobustaBeansAmount(int RobustaBeansAmount) {
+    public void setRobustaBeansAmount(double RobustaBeansAmount) {
         this.RobustaBeansAmount = RobustaBeansAmount;
         logger.log( "Roubsta Conatiner has been filled ");
     }

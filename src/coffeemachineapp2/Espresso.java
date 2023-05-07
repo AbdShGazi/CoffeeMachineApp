@@ -10,16 +10,16 @@ package coffeemachineapp2;
  */
 public class Espresso extends Drink {
     private static final String name = "Espresso";
-    private  static final int singleShotArabicaBeansAmount = 4;
-      private  static final int singleShotRobustaBeansAmount = 3;
-    private static final int singleShotWaterAmount = 30;
-     private  static final int singleShotCaffineAmount=63;
-   private static final int doubleShotArabicaBeansAmount = 7;
-      private static final int doubleShotRobustaBeansAmount = 7;
-    private static final int doubleShotWaterAmounts = 60;
- private static final int doubleShotCaffineAmount=150;
+    private  static final double singleShotArabicaBeansAmount = 4;
+      private  static final double singleShotRobustaBeansAmount = 3;
+    private static final double singleShotWaterAmount = 30;
+     private  static final double singleShotCaffineAmount=63;
+   private static final double doubleShotArabicaBeansAmount = 7;
+      private static final double doubleShotRobustaBeansAmount = 7;
+    private static final double doubleShotWaterAmounts = 60;
+ private static final double doubleShotCaffineAmount=150;
  
-    public Espresso(int shots) {
+    public Espresso(double shots) {
         super(name, shots);
     }
 
@@ -29,7 +29,7 @@ public class Espresso extends Drink {
   
 
     @Override
-    public int getCaffine() {
+    public double getCaffine() {
          if(getShots()==1)
              return singleShotCaffineAmount;
          else
@@ -45,7 +45,7 @@ public class Espresso extends Drink {
 //    }
 
     @Override
-    public int getArabicaRequiredBeans(int shots) {
+    public double getArabicaRequiredBeans(double shots) {
        if(getShots()==1)
          return  singleShotArabicaBeansAmount;
                     else
@@ -54,7 +54,7 @@ public class Espresso extends Drink {
     }
 
     @Override
-    public int getRobustarequiredBeans(int shots) {
+    public double getRobustarequiredBeans(double shots) {
         
         if(getShots()==1)
          return  singleShotRobustaBeansAmount;
@@ -64,7 +64,7 @@ public class Espresso extends Drink {
 
 
     @Override
-    public int getRequiredWater(int x) {
+    public double getRequiredWater(double x) {
         if (getShots()==1)
         return  singleShotWaterAmount ;else
             return doubleShotWaterAmounts;

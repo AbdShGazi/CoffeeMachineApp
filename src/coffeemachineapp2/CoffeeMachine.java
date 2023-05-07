@@ -18,7 +18,7 @@ public class CoffeeMachine {
     private WaterContainer waterContainer = null;
     private Grinder grinder = null;
     private Tray wasteTray = null;
-    private int cupsDone;
+    private double cupsDone;
     FileLogger logger;
 
     public CoffeeMachine(FileLogger logger) {
@@ -34,7 +34,7 @@ public class CoffeeMachine {
         logger.log("Starting..");
     }
 
-    public void selectGrindLevel(int level) {
+    public void selectGrindLevel(double level) {
         if (level < 1 || level > 5) {
             throw new GrinderLevelException();
         } else {
@@ -76,7 +76,7 @@ public class CoffeeMachine {
 //    public void addBeans(int amount)  {
 //        beansContainer.addBeans(amount);
 //    }
-    public void addWater(int amount) {
+    public void addWater(double amount) {
         waterContainer.addWater(amount);
 
     }
@@ -87,10 +87,10 @@ public class CoffeeMachine {
     }
     // 
 
-    public void selectCoffee(Drink coffeeType, int shots, int level) {
-        int robustaBeans = coffeeType.getRobustarequiredBeans(shots);
-        int arabicaBeans = coffeeType.getArabicaRequiredBeans(shots);
-        int requiredWater = coffeeType.getRequiredWater(shots);
+    public void selectCoffee(Drink coffeeType, double shots, double level) {
+        double robustaBeans = coffeeType.getRobustarequiredBeans(shots);
+        double arabicaBeans = coffeeType.getArabicaRequiredBeans(shots);
+        double requiredWater = coffeeType.getRequiredWater(shots);
 
         grinder.setGrindSize(coffeeType.getGrindsize());
         Drink d = new Drink(coffeeType.getName(), shots);
@@ -98,6 +98,7 @@ public class CoffeeMachine {
         try {
             beansContainer.useArabicaBeans(arabicaBeans);
             beansContainer.useRobustaBeans(robustaBeans);
+            /// here there exist error plaess solve it           /////////////////////////////////////////
             waterContainer.useWater(requiredWater);
             grinder.grind(level);
             wasteTray.setCupsUsed(cupsDone++);
@@ -111,7 +112,7 @@ public class CoffeeMachine {
             throw ex;
         }
 
-        int caffeine = coffeeType.getCaffine();
+        double caffeine = coffeeType.getCaffine();
 
     }
 
@@ -125,7 +126,7 @@ public class CoffeeMachine {
         return caffeine;
     }
 
-    public void CustomCoffee(String name, double arabica, double robusta, int shots, int grindLevel) {
+    public void CustomCoffee(String name, double arabica, double robusta, double shots, double grindLevel) {
         try {
 
             Drink customDrink = new Drink(name, shots);
@@ -139,7 +140,7 @@ public class CoffeeMachine {
             grinder.grind(grindLevel);
             beansContainer.useArabicaBeans(arabica);
             beansContainer.useRobustaBeans(robusta);
-            wasteTray.setCupsUsed(cupsDone++);
+            wasteTray.setCupsUsed( cupsDone++);
             logger.log("You ordered: " + customDrink.getName());
             if (!wasteTray.isClean()) {
                 throw new TrayFullException();

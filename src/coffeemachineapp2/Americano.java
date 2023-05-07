@@ -10,22 +10,23 @@ package coffeemachineapp2;
  */
 public class Americano extends Drink {
     private static final String name = "Americano";
-    private static final int singleShotArabicaBensAmount = 4;
-    private static final int singleShotRobustaBensAmount =3;
-   private static final int singleShotCaffineAmount=60;
-    private static final int singleShotWaterAmount = 170;
-    private static final int doubleShotArabicaBeansAmount = 7;
-       private static final int doubleShotRobustaBeansAmount = 7;
-    private static final int doubleShotWaterAmount = 220;
-       private static final int doubleShotCaffineAmount=90;
+    private static final double singleShotArabicaBensAmount = 4;
+    private static final double singleShotRobustaBensAmount =3;
+   private static final double singleShotCaffineAmount=60;
+    private static final double singleShotWaterAmount = 170;
+    private static final double doubleShotArabicaBeansAmount = 7;
+       private static final double  doubleShotRobustaBeansAmount = 7;
+    private static final double doubleShotWaterAmount = 220;
+       private static final double doubleShotCaffineAmount=90;
 
-    public Americano(int shots) {
+    public Americano(double shots) {
         
         super(name, shots);
         
     }  
 
-   public int getCaffine() {
+    @Override
+   public double getCaffine() {
          if(getShots()==1)
              return singleShotCaffineAmount;
          else
@@ -41,7 +42,7 @@ public class Americano extends Drink {
 //    }
 
     @Override
-    public int getArabicaRequiredBeans(int shots) {
+    public double getArabicaRequiredBeans(double shots) {
        if(getShots()==1)
          return  singleShotArabicaBensAmount;
                     else
@@ -50,7 +51,7 @@ public class Americano extends Drink {
     }
 
     @Override
-    public int getRobustarequiredBeans(int shots) {
+    public double getRobustarequiredBeans(double shots) {
         
         if(getShots()==1)
          return  singleShotRobustaBensAmount;
@@ -59,8 +60,8 @@ public class Americano extends Drink {
     }
 
 
-    @Override
-    public int getRequiredWater(int x) {
+    
+    public double getRequiredWater(double x) {
         if (getShots()==1)
         return  singleShotWaterAmount ;else
             return doubleShotWaterAmount;

@@ -1133,15 +1133,15 @@ int level;
                 throw new InputMismatchException("Please Enter your Coffee Name");
             }
 
-            int arabica = 0;
-            int robusta = 0;
+            double arabica = 0;
+            double robusta = 0;
 
             if (!jTextField8.getText().isEmpty()) {
-                arabica = Integer.parseInt(jTextField8.getText());
+                arabica = Double.parseDouble(jTextField8.getText());
             }
 
             if (!jTextField9.getText().isEmpty()) {
-                robusta = Integer.parseInt(jTextField9.getText());
+                robusta = Double.parseDouble(jTextField9.getText());
             }
 
             if (arabica + robusta > 14) {
@@ -1212,7 +1212,7 @@ int level;
 
     private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
         try {
-            if (Integer.parseInt(jTextField9.getText()) < 1) {
+            if (Double.parseDouble(jTextField9.getText()) < 1) {
                 JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
                 jTextField9.setText("");
                 return;
@@ -1232,7 +1232,7 @@ int level;
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
          try {
-            if (Integer.parseInt(jTextField8.getText()) < 1) {
+            if (Double.parseDouble(jTextField8.getText()) < 1) {
                 JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
                 jTextField8.setText("");
                 return;
@@ -1340,7 +1340,7 @@ int level;
 
     private void click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click
         // TODO add your handling code here:
-        if(coffeemahine.getBeansContainer().getArabicaBeansAmount()==400||coffeemahine.getBeansContainer().getRobustaBeansAmount()==400||coffeemahine.getWaterContainer().getWaterAmount()==1500)
+        if(coffeemahine.getBeansContainer().getArabicaBeansAmount()==400&&coffeemahine.getBeansContainer().getRobustaBeansAmount()==400&&coffeemahine.getWaterContainer().getWaterAmount()==1500)
             JOptionPane.showMessageDialog(rootPane, "The Containers Already full");
         else{
         coffeemahine.getBeansContainer().setArabicaBeansAmount(400);
@@ -1359,19 +1359,19 @@ int level;
                 throw new InputMismatchException("Enter The Amount !");
             } else {
                 if (!jTextField1.getText().isEmpty()) {
-                    int RoubstaToAdd = Integer.parseInt(jTextField1.getText());
+                    Double RoubstaToAdd = Double.parseDouble(jTextField1.getText());
                     coffeemahine.getBeansContainer().addRobustaBeanS(RoubstaToAdd);
                 }
 
                 if (!jTextField2.getText().isEmpty()) {
-                    int ArabicaToAdd = Integer.parseInt(jTextField2.getText());
+                    Double ArabicaToAdd = Double.parseDouble(jTextField2.getText());
                     coffeemahine.getBeansContainer().addArabicaBeans(ArabicaToAdd);
 
                 }
 
                 if (!jTextField3.getText().isEmpty()) {
 
-                    int WaterToAdd = Integer.parseInt(jTextField3.getText());
+                    Double WaterToAdd = Double.parseDouble(jTextField3.getText());
                     coffeemahine.addWater(WaterToAdd);
                 }
 
@@ -1413,7 +1413,7 @@ int level;
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
         try {
-            if (Integer.parseInt(jTextField3.getText()) < 1) {
+            if (Double.parseDouble(jTextField3.getText()) <0) {
                 JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
                 jTextField3.setText("");
                 return;
@@ -1429,7 +1429,7 @@ int level;
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         // TODO add your handling code here:
         try {
-            if (Integer.parseInt(jTextField2.getText()) < 1) {
+            if (Double.parseDouble(jTextField2.getText()) < 0) {
                 JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
                 jTextField2.setText("");
                 return;
@@ -1445,7 +1445,7 @@ int level;
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
         try {
-            if (Integer.parseInt(jTextField1.getText()) < 1) {
+            if (Double.parseDouble(jTextField1.getText()) <0) {
                 JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
                 jTextField1.setText("");
                 return;

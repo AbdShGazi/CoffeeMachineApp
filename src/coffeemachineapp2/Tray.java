@@ -9,8 +9,8 @@ package coffeemachineapp2;
  * @author abdsh
  */
 public class Tray {
-  private final int maximumCups=5;
-   private int cupsUsed;
+  private final double maximumCups=5;
+   private double cupsUsed;
    private FileLogger logger;
 
     public Tray(FileLogger logger) {
@@ -18,21 +18,21 @@ public class Tray {
     }
    
 
-    public int getTraycapacity() {
+    public double getTraycapacity() {
         return maximumCups;
     }
 
-    public void setCupsUsed(int cupsUsed) {
+    public void setCupsUsed(double cupsUsed) {
         this.cupsUsed = cupsUsed;
     }
 
     
 
-    public int getIntrayAmount() {
+    public double getIntrayAmount() {
         return cupsUsed;
     }
 
-    public void setIntrayAmount(int intrayAmount) {
+    public void setIntrayAmount(double intrayAmount) {
         this.cupsUsed = intrayAmount;
     }
    

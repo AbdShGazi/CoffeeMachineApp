@@ -12,8 +12,8 @@ import coffeemachineapp2.Exceptions.WaterOverflowException;
  * @author abdsh
  */
 public class WaterContainer {
-    private final int waterCapacity=1500;
-    private int waterAmount;
+    private final double waterCapacity=1500;
+    private double waterAmount;
 FileLogger logger;
 
     public WaterContainer() {
@@ -25,18 +25,18 @@ FileLogger logger;
         this.logger = logger;
     }
 
-    public int getWaterAmount() {
+    public double getWaterAmount() {
         return waterAmount;
     }
 
-    public void setWaterAmount(int waterAmount) {
+    public void setWaterAmount(double waterAmount) {
         this.waterAmount = waterAmount;
         logger.log( "Water Conatiner has been filled ");
     }
 
 
 
-    public void addWater(int amount)  {
+    public void addWater(double amount)  {
         if (waterAmount + amount > waterCapacity) {
             throw new WaterOverflowException();
         }
@@ -45,8 +45,8 @@ FileLogger logger;
         logger.log("You Added "+ amount +" ml of Water");
     }
 
-    public void useWater(int amount) {
-        int remainingWater = waterAmount - amount;
+    public void useWater(double amount) {
+        double remainingWater = waterAmount - amount;
 
         if (remainingWater < 0) {
             throw new WaterNotEnoughException();
@@ -57,7 +57,11 @@ FileLogger logger;
        
     }
 
-    public int getWater() {
+    public double getWater() {
         return waterAmount;
+    }
+
+    Object useWater() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

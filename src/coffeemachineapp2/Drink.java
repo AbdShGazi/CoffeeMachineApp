@@ -11,22 +11,22 @@ package coffeemachineapp2;
 public class Drink {
 
     private String name;
-    private final int shots;
-    private int Caffine;
-    private int grindsize;
-    private int RobustarequiredBeans;
-    private int requiredWater;
-    private int ArabicaRequiredBeans;
+    private final double shots;
+    private double Caffine;
+    private double grindsize;
+    private double RobustarequiredBeans;
+    private double requiredWater;
+    private double ArabicaRequiredBeans;
 
-    public int getGrindsize() {
+    public double getGrindsize() {
         return grindsize;
     }
 
-    public void setGrindsize(int grindsize) {
+    public void setGrindsize(double grindsize) {
         this.grindsize = grindsize;
     }
 
-    public Drink(String name, int shots) {
+    public Drink(String name, double shots) {
         this.name = name;
         this.shots = shots;
     }
@@ -43,36 +43,36 @@ public class Drink {
         }
     }
 
-    public int getShots() {
+    public double getShots() {
         return shots;
     }
 
-    public int getRobustarequiredBeans(int shots) {
+    public double getRobustarequiredBeans(double shots) {
         return RobustarequiredBeans;
     }
 
-    public int getArabicaRequiredBeans(int shots) {
+    public double getArabicaRequiredBeans(double shots) {
         return ArabicaRequiredBeans;
     }
 
-    public void setRobustarequiredBeans(int RobustarequiredBeans) {
+    public void setRobustarequiredBeans(double RobustarequiredBeans) {
         this.RobustarequiredBeans = RobustarequiredBeans;
     }
 
-    public void setArabicaRequiredBeans(int ArabicaRequiredBeans) {
+    public void setArabicaRequiredBeans(double ArabicaRequiredBeans) {
         this.ArabicaRequiredBeans = ArabicaRequiredBeans;
     }
 
-    public int getRequiredWater(int x) {
+    public double getRequiredWater(double x) {
         return 0;
 
     }
 
-    public int getCaffine() {
+    public double getCaffine() {
         return Caffine;
     }
 
-    public void setCaffine(int Caffine) {
+    public void setCaffine(double Caffine) {
         this.Caffine = Caffine;
     }
 
