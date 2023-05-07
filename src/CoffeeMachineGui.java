@@ -154,9 +154,9 @@ int level;
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLoggerList1 = new javax.swing.JList<>();
-        jScrollBar2 = new javax.swing.JScrollBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CoffeeMachine");
 
         jPanel1.setBackground(new java.awt.Color(210, 180, 140));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -1052,26 +1052,21 @@ int level;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(1, 1, 1)
-                .addComponent(jScrollBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Main", null, jPanel1, "");
@@ -1103,6 +1098,9 @@ int level;
         // TODO add your handling code here:
 
         try {
+             if (!jRadioButton8.isSelected()) {
+                throw new InputMismatchException("Please choose your coffee!");
+            }
             if (jRadioButton8.isSelected()) {
                 coffeemahine.CustomCoffee("Programmer Coffee", 0, 14, 2,1);
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
@@ -1125,7 +1123,7 @@ int level;
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         try {
-           
+           level=jSlider4.getValue();
             if (jTextField7.getText().isEmpty()) {
                 throw new InputMismatchException("Please Enter your Coffee Name");
             }
@@ -1277,26 +1275,26 @@ int level;
 
             if (jRadioButton3.isSelected() && jRadioButton1.isSelected()) {
                 Americano A1 = new Americano(0);
-                coffeemahine.selectCoffee(A1, 0);
+                coffeemahine.selectCoffee(A1, 0,level);
                 jTextField11.setText(A1.getCaffine() + "");
                 {
                     JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
                 }
             } else if (jRadioButton4.isSelected() && jRadioButton1.isSelected()) {
                 Americano A1 = new Americano(1);
-                coffeemahine.selectCoffee(A1, 1);
+                coffeemahine.selectCoffee(A1, 1,level);
                 jTextField11.setText(A1.getCaffine() + "");
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
                 jTextField11.setText(A1.getCaffine() + "");
                 jTextField11.setText(A1.getCaffine() + "");
             } else if (jRadioButton3.isSelected() && jRadioButton2.isSelected()) {
                 Espresso A1 = new Espresso(0);
-                coffeemahine.selectCoffee(A1, 0);
+                coffeemahine.selectCoffee(A1, 0,level);
                 jTextField11.setText(A1.getCaffine() + "");
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
             } else if (jRadioButton4.isSelected() && jRadioButton2.isSelected()) {
                 Espresso A1 = new Espresso(1);
-                coffeemahine.selectCoffee(A1, 1);
+                coffeemahine.selectCoffee(A1, 1,level);
                 jTextField11.setText(A1.getCaffine() + "");
 
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
@@ -1609,7 +1607,6 @@ public static void setEnabledAll(Component component, boolean enabled) {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;

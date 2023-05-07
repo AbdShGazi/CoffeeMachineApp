@@ -87,7 +87,7 @@ public class CoffeeMachine {
     }
     // 
 
-    public void selectCoffee(Drink coffeeType, int shots) {
+    public void selectCoffee(Drink coffeeType, int shots, int level) {
         int robustaBeans = coffeeType.getRobustarequiredBeans(shots);
         int arabicaBeans = coffeeType.getArabicaRequiredBeans(shots);
         int requiredWater = coffeeType.getRequiredWater(shots);
@@ -99,6 +99,7 @@ public class CoffeeMachine {
             beansContainer.useArabicaBeans(arabicaBeans);
             beansContainer.useRobustaBeans(robustaBeans);
             waterContainer.useWater(requiredWater);
+            grinder.grind(level);
             wasteTray.setCupsUsed(cupsDone++);
             logger.log("You ordered: " + d.getInfo());
 
@@ -110,15 +111,8 @@ public class CoffeeMachine {
             throw ex;
         }
 
-//        System.out.println("Enjoy your " + Drink.getName() + " coffee!");
         int caffeine = coffeeType.getCaffine();
 
-//        System.out.println("Caffeine: " + caffeine + " mg");
-//
-//        System.out.println("Remaining Arabica beans: " + remainArabicabeans);
-//        System.out.println("Remaining Robusta beans: " + remainRobustabeans);
-//
-//        System.out.println("Remaining water: " + remainwater);
     }
 
     public BeansContainer getBeansContainer() {
@@ -131,10 +125,7 @@ public class CoffeeMachine {
         return caffeine;
     }
 
-//    public int CalculateCaffiene(Drink s,int shot) {
-//return (s.getArabicaRequiredBeans(shot)*12 + s.getRobustarequiredBeans(shot)*27);
-//    }
-    public void CustomCoffee(String name, double arabica, double robusta, int shots,int grindLevel) {
+    public void CustomCoffee(String name, double arabica, double robusta, int shots, int grindLevel) {
         try {
 
             Drink customDrink = new Drink(name, shots);
@@ -145,7 +136,7 @@ public class CoffeeMachine {
             } else {
                 waterContainer.useWater(200);
             }
-grinder.grind(grindLevel);
+            grinder.grind(grindLevel);
             beansContainer.useArabicaBeans(arabica);
             beansContainer.useRobustaBeans(robusta);
             wasteTray.setCupsUsed(cupsDone++);
