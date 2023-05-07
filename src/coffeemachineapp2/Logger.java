@@ -10,5 +10,5 @@ package coffeemachineapp2;
  * @author abdsh
  */
 public interface Logger {
-    void log (String msg);
+    public abstract void log (String msg);
 }

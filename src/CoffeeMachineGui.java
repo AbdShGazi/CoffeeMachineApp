@@ -2,10 +2,17 @@
 import coffeemachineapp2.Americano;
 import coffeemachineapp2.CoffeeMachine;
 import coffeemachineapp2.Espresso;
+import coffeemachineapp2.FileLogger;
 import coffeemachineapp2.Logger;
 import java.awt.Component;
 import java.awt.Container;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.logging.Level;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -20,9 +27,11 @@ import javax.swing.JRadioButton;
  *
  * @author abdsh
  */
-public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
+public class CoffeeMachineGui extends javax.swing.JFrame {
 
-    static CoffeeMachine coffeemahine = new CoffeeMachine();
+    FileLogger logger = new FileLogger();
+    CoffeeMachine coffeemahine = new CoffeeMachine(logger);
+    ArrayList<String> ListInfo = new ArrayList<>();
 
     /**
      * Creates new form CoffeeMachineGui
@@ -49,6 +58,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
         buttonGroup3 = new javax.swing.ButtonGroup();
         jScrollBar1 = new javax.swing.JScrollBar();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -142,9 +152,23 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
         jLabel46 = new javax.swing.JLabel();
         jSlider4 = new javax.swing.JSlider();
         jButton6 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jLoggerList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1176, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1062, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel2);
 
         jPanel1.setBackground(new java.awt.Color(210, 180, 140));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -289,7 +313,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -867,7 +891,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
                                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel38)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -892,7 +916,7 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1004,6 +1028,14 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
                 .addContainerGap())
         );
 
+        jLoggerList1.setBorder(javax.swing.BorderFactory.createTitledBorder("Machine History "));
+        jLoggerList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jLoggerList1ValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jLoggerList1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1013,7 +1045,11 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1028,25 +1064,17 @@ public class CoffeeMachineGui extends javax.swing.JFrame implements Logger {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", null, jPanel1, "");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1176, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1062, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1071,12 +1099,14 @@ public static void setEnabledAll(Component component, boolean enabled) {
             }
         }
     }
-public boolean isit(){
-    if(jTextField9.getText()!=null||jTextField8.getText()!=null||jRadioButton5.isSelected()||jRadioButton6.isSelected()||jRadioButton7.isSelected())
-       return false;
-    else
-    return true;
-}
+
+    public boolean isit() {
+        if (jTextField9.getText() != null || jTextField8.getText() != null || jRadioButton5.isSelected() || jRadioButton6.isSelected() || jRadioButton7.isSelected()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -1131,6 +1161,7 @@ public boolean isit(){
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         setEnabledAll(jPanel1, true);
+        Display();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -1140,7 +1171,7 @@ public boolean isit(){
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+
         if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) {
             JOptionPane.showMessageDialog(rootPane, "Select your Coffee Type !");
         } else if (!jRadioButton3.isSelected() && !jRadioButton4.isSelected()) {
@@ -1148,19 +1179,22 @@ public boolean isit(){
         }
 
         try {
-
             if (jRadioButton3.isSelected() && jRadioButton1.isSelected()) {
-                 Americano A1 = new Americano(0);
+                Americano A1 = new Americano(0);
                 coffeemahine.selectCoffee(A1, 0);
                 jTextField11.setText(A1.getCaffine() + "");
+                    Display();
                 {
                     JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+
                 }
             } else if (jRadioButton4.isSelected() && jRadioButton1.isSelected()) {
                 Americano A1 = new Americano(1);
                 coffeemahine.selectCoffee(A1, 1);
                 jTextField11.setText(A1.getCaffine() + "");
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+                Display();
+
                 jTextField11.setText(A1.getCaffine() + "");
                 jTextField11.setText(A1.getCaffine() + "");
             } else if (jRadioButton3.isSelected() && jRadioButton2.isSelected()) {
@@ -1168,12 +1202,16 @@ public boolean isit(){
                 coffeemahine.selectCoffee(A1, 0);
                 jTextField11.setText(A1.getCaffine() + "");
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+                Display();
+
             } else if (jRadioButton4.isSelected() && jRadioButton2.isSelected()) {
                 Espresso A1 = new Espresso(1);
                 coffeemahine.selectCoffee(A1, 1);
                 jTextField11.setText(A1.getCaffine() + "");
-                
+
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
+                Display();
+
             }
 
         } catch (Exception ex) {
@@ -1181,7 +1219,6 @@ public boolean isit(){
             JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
 
         jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
         jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
@@ -1217,7 +1254,6 @@ public boolean isit(){
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         try {
-            
 
             if (jTextField7.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(rootPane, "Please Enter your Coffee Name");
@@ -1232,21 +1268,20 @@ public boolean isit(){
                 JOptionPane.showMessageDialog(rootPane, "The maximum grams of beans is 14 !");
                 jTextField8.setText("");
                 jTextField9.setText("");
-               return;
-                
+                return;
+
             }
 
             if (jRadioButton5.isSelected()) {
                 coffeemahine.CustomCoffee(jTextField7.getText(), Integer.parseInt(jTextField8.getText()), Integer.parseInt(jTextField9.getText()), 0);
                 JOptionPane.showMessageDialog(rootPane, "Enjoy your " + " coffee!");
-                
-               
+
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
                 jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
                 jTextField6.setText(coffeemahine.getWaterLevel() + "");
-                double arabica=Double.parseDouble(jTextField8.getText());
-        double Roubsta=Double.parseDouble(jTextField9.getText());
-            jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta)+"");
+                double arabica = Double.parseDouble(jTextField8.getText());
+                double Roubsta = Double.parseDouble(jTextField9.getText());
+                jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta) + "");
                 return;
             } else if (jRadioButton6.isSelected()) {
                 coffeemahine.CustomCoffee(jTextField7.getText(), Integer.parseInt(jTextField8.getText()), Integer.parseInt(jTextField9.getText()), 1);
@@ -1254,10 +1289,10 @@ public boolean isit(){
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
                 jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
                 jTextField6.setText(coffeemahine.getWaterLevel() + "");
-                
-                double arabica=Double.parseDouble(jTextField8.getText());
-        double Roubsta=Double.parseDouble(jTextField9.getText());
-            jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta)+"");
+
+                double arabica = Double.parseDouble(jTextField8.getText());
+                double Roubsta = Double.parseDouble(jTextField9.getText());
+                jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta) + "");
                 return;
             } else if (jRadioButton7.isSelected()) {
                 coffeemahine.CustomCoffee(jTextField7.getText(), Integer.parseInt(jTextField8.getText()), Integer.parseInt(jTextField9.getText()), 2);
@@ -1265,14 +1300,12 @@ public boolean isit(){
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
                 jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
                 jTextField6.setText(coffeemahine.getWaterLevel() + "");
-                
-                double arabica=Double.parseDouble(jTextField8.getText());
-        double Roubsta=Double.parseDouble(jTextField9.getText());
-            jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta)+"");
+
+                double arabica = Double.parseDouble(jTextField8.getText());
+                double Roubsta = Double.parseDouble(jTextField9.getText());
+                jTextField12.setText(coffeemahine.calculateCaffeine(arabica, Roubsta) + "");
                 return;
             }
-            
-            
 
         } catch (Exception ex) {
 
@@ -1315,13 +1348,12 @@ public boolean isit(){
 
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
-       
 
 
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
-     
+
     }//GEN-LAST:event_jTextField9KeyReleased
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
@@ -1340,14 +1372,14 @@ public boolean isit(){
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         // TODO add your handling code here:
-        try{
-        if (Integer.parseInt(jTextField2.getText()) < 1) {
-            
-        }
-       
-        }catch(Exception ex){
+        try {
+            if (Integer.parseInt(jTextField2.getText()) < 1) {
+
+            }
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-             jTextField2.setText("");
+            jTextField2.setText("");
             return;
         }
     }//GEN-LAST:event_jTextField2KeyReleased
@@ -1370,7 +1402,7 @@ public boolean isit(){
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             if (jRadioButton8.isSelected()) {
                 coffeemahine.CustomCoffee("Programmer Coffee", 0, 14, 2);
@@ -1378,18 +1410,43 @@ public boolean isit(){
                 jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
                 jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
                 jTextField6.setText(coffeemahine.getWaterLevel() + "");
-                
-                 jTextField12.setText(coffeemahine.calculateCaffeine(0, 14)+"");
+
+                jTextField12.setText(coffeemahine.calculateCaffeine(0, 14) + "");
                 return;
             }
-            
-            
-             } catch (Exception ex) {
+
+        } catch (Exception ex) {
 
             JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    void Display() {
+        try (FileReader fileReader = new FileReader("machine.log"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                ListInfo.add(line);
+                // process each line of text as needed
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+        String[] arr = new String[ListInfo.size()];
+        for (int i = 0; i < ListInfo.size(); i++) {
+            arr[i] = ListInfo.get(i);
+        }
+        jLoggerList1.setListData(arr);
+    }
+
+    private void jLoggerList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jLoggerList1ValueChanged
+        // TODO add your handling code here:
+        int index = jLoggerList1.getSelectedIndex();
+        //            FileReader fileReader = new FileReader("machine");
+        if (index != -1) {
+
+        }
+    }//GEN-LAST:event_jLoggerList1ValueChanged
 
     /**
      * @param args the command line arguments
@@ -1486,6 +1543,7 @@ public boolean isit(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jLoggerList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1501,6 +1559,7 @@ public boolean isit(){
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1528,8 +1587,4 @@ public boolean isit(){
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void log(String msg) {
-        System.out.println(msg);
-    }
 }

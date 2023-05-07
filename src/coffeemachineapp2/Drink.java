@@ -9,16 +9,16 @@ package coffeemachineapp2;
  * @author abdsh
  */
 public class Drink {
-    private static  String name;
+
+    private String name;
     private final int shots;
-    private  int Caffine;
-    private  int grindsize;
-    private  int RobustarequiredBeans;
-private  int requiredWater;
-private int ArabicaRequiredBeans;
+    private int Caffine;
+    private int grindsize;
+    private int RobustarequiredBeans;
+    private int requiredWater;
+    private int ArabicaRequiredBeans;
 
-
-    public  int getGrindsize() {
+    public int getGrindsize() {
         return grindsize;
     }
 
@@ -31,8 +31,16 @@ private int ArabicaRequiredBeans;
         this.shots = shots;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
+    }
+
+    public String getinfoShots() {
+        if (shots == 0) {
+            return "Single shot";
+        } else {
+            return "Double shot";
+        }
     }
 
     public int getShots() {
@@ -54,22 +62,22 @@ private int ArabicaRequiredBeans;
     public void setArabicaRequiredBeans(int ArabicaRequiredBeans) {
         this.ArabicaRequiredBeans = ArabicaRequiredBeans;
     }
-    
-
-  
 
     public int getRequiredWater(int x) {
-      return 0;
-           
+        return 0;
+
     }
 
-    public  int getCaffine() {
+    public int getCaffine() {
         return Caffine;
     }
 
     public void setCaffine(int Caffine) {
         this.Caffine = Caffine;
     }
-    
-    
+
+    public String getInfo() {
+        return "" + getName() + "" + getinfoShots();
+    }
+
 }

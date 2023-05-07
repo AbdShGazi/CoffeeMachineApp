@@ -19,12 +19,15 @@ public class CoffeeMachine {
     private Grinder grinder = new Grinder();
     private Tray wasteTray = new Tray();
     private int cupsDone;
+    FileLogger logger;
 
-    public CoffeeMachine() {
+    public CoffeeMachine(FileLogger logger) {
         cupsDone = 0;
+        this.logger = logger;
     }
 
     public void start() {
+        logger.log("Starting...");
     }
 
     public void selectGrindLevel(int level) {
@@ -34,7 +37,8 @@ public class CoffeeMachine {
 
             grinder.setGrindSize(level);
 
-            System.out.println("Grind level is :");
+            logger.log("Grind Leve: " + level);
+            
         }
     }
 
@@ -58,8 +62,8 @@ public class CoffeeMachine {
         return grinder.getGrindSize();
     }
 
-    public String getCoffeeName() {
-        return Drink.getName();
+    public String getCoffeeName(Drink coffeeType) {
+        return coffeeType.getName();
     }
 
     public Tray getWasteTray() {
@@ -85,12 +89,14 @@ public class CoffeeMachine {
         int requiredWater = coffeeType.getRequiredWater(shots);
 
         grinder.setGrindSize(coffeeType.getGrindsize());
+        Drink d = new Drink(coffeeType.getName(),shots);
 
         try {
             beansContainer.useArabicaBeans(arabicaBeans);
             beansContainer.useRobustaBeans(robustaBeans);
             waterContainer.useWater(requiredWater);
             wasteTray.setCupsUsed(cupsDone++);
+            logger.log("You ordered: "+ d.getInfo());
 
             if (!wasteTray.isClean()) {
                 throw new TrayFullException();
@@ -151,5 +157,4 @@ public class CoffeeMachine {
 
         }
     }
-
 }
