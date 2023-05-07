@@ -194,6 +194,11 @@ int level;
         });
 
         jTextField2.setEnabled(false);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField2KeyReleased(evt);
@@ -1226,6 +1231,14 @@ int level;
 
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
+         try {
+            if (Integer.parseInt(jTextField8.getText()) < 1) {
+                JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
+                jTextField8.setText("");
+                return;
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
@@ -1327,12 +1340,16 @@ int level;
 
     private void click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click
         // TODO add your handling code here:
+        if(coffeemahine.getBeansContainer().getArabicaBeansAmount()==400||coffeemahine.getBeansContainer().getRobustaBeansAmount()==400||coffeemahine.getWaterContainer().getWaterAmount()==1500)
+            JOptionPane.showMessageDialog(rootPane, "The Containers Already full");
+        else{
         coffeemahine.getBeansContainer().setArabicaBeansAmount(400);
         coffeemahine.getBeansContainer().setRobustaBeansAmount(400);
         coffeemahine.getWaterContainer().setWaterAmount(1500);
         jTextField4.setText(coffeemahine.getBeansContainer().getRobustaBeansAmount() + "");
         jTextField5.setText(coffeemahine.getBeansContainer().getArabicaBeansAmount() + "");
         jTextField6.setText(coffeemahine.getWaterLevel() + "");
+        }
         Display();
     }//GEN-LAST:event_click
 
@@ -1413,13 +1430,11 @@ int level;
         // TODO add your handling code here:
         try {
             if (Integer.parseInt(jTextField2.getText()) < 1) {
-
+                JOptionPane.showMessageDialog(rootPane, "You cannot Add Negative Amount !");
+                jTextField2.setText("");
+                return;
             }
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            jTextField2.setText("");
-            return;
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_jTextField2KeyReleased
 
@@ -1457,6 +1472,10 @@ int level;
         // TODO add your handling code here:
         level=jSlider4.getValue();
     }//GEN-LAST:event_jSlider4StateChanged
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 public static void setEnabledAll(Component component, boolean enabled) {
         component.setEnabled(enabled);
         if (component instanceof Container) {
